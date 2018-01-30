@@ -1,4 +1,4 @@
-![](../images/ikmb_bfx_logo.png)
-
+[logo]: images/ikmb_bfx_logo.png
+ 
 # Overview
 
