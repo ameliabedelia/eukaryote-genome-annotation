@@ -53,24 +53,31 @@ Once you have done that, try completing the following tasks using the EnsEMBL ge
 
 **QB1.2:** How many non-coding genes are annotated in human? And in chicken?  
 
-**QB1.3:** How many transcript variants are annotated in EnsEMBL for the human BRCA1 gene? How long is the longest protein product, how long the shortest?  
+**QB1.3:** How many transcript variants are annotated in EnsEMBL for the human BRCA1 gene?  
+How long is the longest protein product, how long the shortest?  
 
 **QB1.4:** Are there differences between UCSC and EnsEMBL in BRCA1 number of transcripts?  (for UCSC, count the RefSeq transcripts)
 
-**QB1.5:** What is the biological function of BRCA1? (you can check "Ontologies", "Molecular function")
+**QB1.5:** What is the biological function of BRCA1? (you can check "Ontologies" --> "Molecular function")
 
 **QB1.6:** In which diseases are BRCA1 and BRCA2 involved? (check "External references")
 
 **QB1.7:** What are the external descriptors/ids for these genes (indicated by '*') and phenotypes/diseases (indicated by '#') in OMIM(MIM)?
 
-**QB1.8:** Do orthologs of BRCA2 exist in chicken? (check EnsEMBL, gene tab, orthologs/paralogs). If yes, what is the gene id?
+**QB1.8:** Do orthologs of BRCA2 exist in chicken? (check EnsEMBL "Gene tab" --> "orthologs/paralogs").  
+If yes, what is the gene id?
 
-**QB1.9:** How deeply conserved (i.e. across taxonomic groups) is the TEX14 gene? (Gene tab --> Comparative genomics, gene tree)
+**QB1.9:** How deeply conserved (i.e. across taxonomic groups) is the TEX14 gene? ("Gene tab" --> "Comparative genomics" --> "gene tree")
 
-**QB1.10:** 
+**QB1.10:** How many exons does the TEX14 transcript with the longest protein product have? ("Gene tab" --> "Summary" --> "Show transcript table", then click on the transcript id).  
+How many of these are codng exons?  
+How long is the transcript, how long the protein product?  
 
-**QB1.11:**
+**QB1.11:** In which tissues is the TEX14 gene strongly expressed? ("Gene tab" --> "external data" --> "Gene expression", scroll sideways to see all tested tissues)
 
-**QB1.12:**
+**QB1.12:**  Which parts of the HOXA1 gene are most conserved across 37 mammalian genomes? ("Location tab" --> "Configure this page" --> "Comparative genomics", enable the correct track)  
 
-**QB1.13:**
+**QB1.13:** Use EnsEMBL to get the protein sequence for the canonical (i.e. the dominant) transcript of the HOXA1 gene and blast it against the human proteome using the Blast/Blat tool provided by EnsEMBL (top of the page). How many hits do you find?  
+What are the top-ranked proteins?  
+
+# B2. Understanding male morphs in the ruff (*Philomachus pugnax*) - A genomics approach  
