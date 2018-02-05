@@ -1,4 +1,4 @@
-![](images/ikmb_bfx_logo.png)
+![the_ruff](/uploads/df94fbaec694c160a3aab081227455b6/the_ruff.jpg)![](images/ikmb_bfx_logo.png)
  
 # Overview
 
