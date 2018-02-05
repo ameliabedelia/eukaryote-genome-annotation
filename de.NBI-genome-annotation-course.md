@@ -90,7 +90,7 @@ While the "normal" ("Independents") males make up 80-95% of the population, "Sat
 
 There are almost no other examples from the animal kingdom where such a mating system exists. It was initially unclear how this could be explained genetically and why the less abundant morphs persist and are not outcompeted by the "Independent" phenotype. To answer the question, a genome sequence was generated.  
 
-In this exercise, you will analyze __scaffold28__ of the ruff draft genome sequence and re-trace the analysis performed by the authors to see if you can repeat their results. For this, you will annotate the scaffold, assign functions to the predicted protein products and compare the daa with reference information to create a first hypothesis that can explain the male morph phenotypes.  
+In this exercise, you will analyze _scaffold28_** of the ruff draft genome sequence and re-trace the analysis performed by the authors to see if you can repeat their results. For this, you will annotate the scaffold, assign functions to the predicted protein products and compare the daa with reference information to create a first hypothesis that can explain the male morph phenotypes.  
 
 ## B2.1. Setting up  
 
