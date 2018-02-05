@@ -6,7 +6,7 @@ The following exercices will introduce you to methods in eukaryotic genome annot
 
 **A. Crash course/lecture**  
  * Insights into eukryotic genome annotation    
-
+  
 
 **B. Practical course**  
  * **B1.** Genome Browsers  
