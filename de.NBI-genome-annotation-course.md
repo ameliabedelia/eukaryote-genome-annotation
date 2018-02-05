@@ -37,4 +37,12 @@ Copy the singularity image for this exercise to your local hard drive:
 In order to be able to run the examples in the following exercises, you will have to add the following code in front of each command:  
 `singularity exec $HOME/singularity.img <command execution here>` 
 
-
+# B1. Genome Browsers  
+Genome browsers are an important tool for anyone working with eukaryote genome sequences. They can help visualize rich data sets and are often critical to the biological interpretation of findings from e.g. sequencing experiments.  
+It is important to familiarize yourself with these resources so you understand what kind of features can be annotated and where to find this type of information.  
+Try out the following URLs to get an impression of different Genome-Browser flavours. What features/annotations fo these browsers offer? How do they display them? If you need some inspiration regarding which genes to inspect in EnsEMBL and UCSC, you can start with these:  
+BRCA1, BRCA2, HOXA1  
+* UCSC Genome Browser
+* Ensembl Genome Browser
+* NCBI Map viewer
+* Metazome
