@@ -1,4 +1,4 @@
-![the_ruff](/uploads/df94fbaec694c160a3aab081227455b6/the_ruff.jpg)![](images/ikmb_bfx_logo.png)
+![](images/ikmb_bfx_logo.png)
  
 # Overview
 
@@ -85,4 +85,18 @@ One of the key goals of genome sequencing is to understand biological phenomena 
 ![alt text](images/ruff_morphs.png)  
 ![alt text](images/the_ruff.jpg)  
 *picture from Farrell et al. 2013*  
-While
+
+While the "normal" ("Independents") males make up 80-95% of the population, "Satellites" are found at frequencies of 5-20% and "Feaders" at less than 1%. Biologically, "Satellites" look similar to "Independents", with the exception that they have white, not colored feather ornaments and behave very passively. "Feaders" look almost like females and only have success mating when approaching females while the other males are busy "showing off".  
+
+There are almost no other examples from the animal kingdom where such a mating system exists. It was initially unclear how this could be explained genetically and why the less abundant morphs persist and are not outcompeted by the "Independent" phenotype. To answer the question, a genome sequence was generated.  
+
+In this exercise, you will analyze __scaffold28__ of the ruff draft genome sequence and re-trace the analysis performed by the authors to see if you can repeat their results. For this, you will annotate the scaffold, assign functions to the predicted protein products and compare the daa with reference information to create a first hypothesis that can explain the male morph phenotypes.  
+
+## B2.1. Setting up  
+
+Data for the exercises is located in the folder `/mnt/lectures/biol258/Day07/B2`.  
+Copy that folder to your $HOME directory:  
+`cp -R /mnt/lectures/biol258/Day07/B2 $HOME/Day07`  
+
+The copy in your home folder is where you will run the following analyses. The different data can be found in the various subfolders:  
+**1) The genome sequence (scaffold28):** 
