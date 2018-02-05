@@ -44,5 +44,5 @@ Try out the following URLs to get an impression of different Genome-Browser flav
 BRCA1, BRCA2, HOXA1  
 * Ensembl Genome Browser (http://www.ensembl.org/index.html)
 * UCSC Genome Browser (http://genome.ucsc.edu)
-* NCBI Map viewer (http://www.ncbi.nlm.nih.gov/projects/mapview)
+* NCBI's Genome Data Viewer (https://www.ncbi.nlm.nih.gov/genome/gdv/)
 * Metazome (http://www.metazome.net)
