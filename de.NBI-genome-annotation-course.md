@@ -45,4 +45,11 @@ BRCA1, BRCA2, HOXA1
 * Ensembl Genome Browser (http://www.ensembl.org/index.html)
 * UCSC Genome Browser (http://genome.ucsc.edu)
 * NCBI's Genome Data Viewer (https://www.ncbi.nlm.nih.gov/genome/gdv/)
-* Metazome (http://www.metazome.net)
+* Metazome (http://www.metazome.net)  
+Once you have done that, try completing the following tasks using the EnsEMBL genome portal liked above.  
+
+**QB1.1:** How many protein-coding genes are annotated in the mouse (check the info page for mouse, accessible from the front page and then search for annotation statistics).  
+
+**QB1.2:** How many non-coding genes are annotated in human? And in chicken?  
+
+**QB1.3:** How many transcript variants are annotated in EnsEMBL for the human BRCA1 gene? How long is the longest protein product, how long the shortest?  
