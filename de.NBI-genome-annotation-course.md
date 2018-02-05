@@ -20,9 +20,9 @@ For the exercises in B2, you will need the **IGV genome browser**. The program c
 *Please note! The commands given in these pages are examples and they assume that you make sure that the input and output files are where they should be.*  
 *Some times you may have to copy files to your current directory or expand the example commands to include correct/full paths!*  
   
-**Software containers:** many of the tools used in this exercise are pretty complex to install. In order to avoid having to install them on each computer we are going to use software *containers*. These are *portable* environments in which you can install an operating system, a program or many programs and then copy the whole thing to whichever computer you like to run the software. Popular solutions are Docker and **Singularity** (which we will use here). The way to run a tool inside a container os pretty straight-forward.  
+**Software containers:** many of the tools used in this exercise are pretty complex to install. In order to avoid having to install them on each computer we are going to use software *containers*. These are *portable* environments in which you can install an operating system, a program or many programs and then copy the whole thing to whichever computer you like to run the software. Popular solutions are Docker and **Singularity** (which we will use here). The way to run a tool inside a container is pretty straight-forward:  
 
-If you would run a command without container like this:
+If you would run a command without container like this:  
 `samtools sort -o rnaseq.sorted.bam rnaseq.bam`  
 
 You would run the same command with a container like this:  
@@ -30,7 +30,7 @@ You would run the same command with a container like this:
 
 Here `container.img` is a place holder, which you have to replace by the name of the actual container.  
 
-Copy the singularity image for this exercise to your local hard drive:
+Copy the singularity image for this exercise to your local hard drive:  
 `cp -R /mnt/lectures/biol258/Day07/singularity.img $HOME`  
 
 In order to be able to run the examples in the following exercises, you will have to add the following code in front of each command:  
