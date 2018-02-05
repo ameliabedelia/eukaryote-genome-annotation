@@ -19,5 +19,9 @@ For the exercises in B2, you will need the **IGV genome browser**. The program c
 using:  
 `cp -R /mnt/lectures/biol258/Day07/IGV $HOME`  
 
-*Please note! The commands given in there pages are examples and they assume that you make sure that the input and output files are where they should be.*
+*Please note! The commands given in these pages are examples and they assume that you make sure that the input and output files are where they should be.*  
+*Some times you may have to copy files to your current directory or expand the example commands to include correct/full paths!*  
+  
+**Singularity**  
+
 
