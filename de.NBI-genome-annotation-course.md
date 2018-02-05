@@ -5,7 +5,7 @@
 The following exercices will introduce you to methods in eukaryotic genome annotation. The following topics will be discussed in order:
 
 **A. Crash course/lecture**  
- * Insights into eukryotic genome annotation  
+ * Insights into eukryotic genome annotation *(not included in this wiki)*  
   
   
 **B. Practical course**  
