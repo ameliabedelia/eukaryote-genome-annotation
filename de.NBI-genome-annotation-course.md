@@ -82,5 +82,6 @@ What are the top-ranked proteins?
 
 # B2. Understanding male morphs in the ruff (*Philomachus pugnax*) - a genomics approach  
 One of the key goals of genome sequencing is to understand biological phenomena on a molecular level. Examples include the cause of genetic diseases as well as phenotypic or even behavioral traits. A nice example of the latter was published in the journal Nature Genetics in 2015 by Swedish researchers [(Lamichhaney et al. Nature Genetics, 2015)](https://www.nature.com/articles/ng.3430). They had observed that a Nordic bird species known as "ruff" (German: "Kampfläufer) has not one but three different male morphs. Male morphs are thought to be a display of fitness to attract mates. The morhps in the ruff are special though. In addition to the typical "ornamented" male (known as "Independents") there are also "Satellites" and "Feaders".  
-*picture from Farrell et al. 2013*
+![](images/ruff_morphs.png)  
+*picture from Farrell et al. 2013*  
 While
