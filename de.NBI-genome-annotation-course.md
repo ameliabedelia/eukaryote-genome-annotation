@@ -46,6 +46,7 @@ BRCA1, BRCA2, HOXA1
 * UCSC Genome Browser (http://genome.ucsc.edu)
 * NCBI's Genome Data Viewer (https://www.ncbi.nlm.nih.gov/genome/gdv/)
 * Metazome (http://www.metazome.net)  
+
 Once you have done that, try completing the following tasks using the EnsEMBL genome portal liked above.  
 
 **QB1.1:** How many protein-coding genes are annotated in the mouse (check the info page for mouse, accessible from the front page and then search for annotation statistics).  
@@ -53,3 +54,23 @@ Once you have done that, try completing the following tasks using the EnsEMBL ge
 **QB1.2:** How many non-coding genes are annotated in human? And in chicken?  
 
 **QB1.3:** How many transcript variants are annotated in EnsEMBL for the human BRCA1 gene? How long is the longest protein product, how long the shortest?  
+
+**QB1.4:** Are there differences between UCSC and EnsEMBL in BRCA1 number of transcripts?  (for UCSC, count the RefSeq transcripts)
+
+**QB1.5:** What is the biological function of BRCA1? (you can check "Ontologies", "Molecular function")
+
+**QB1.6:** In which diseases are BRCA1 and BRCA2 involved? (check "External references")
+
+**QB1.7:** What are the external descriptors/ids for these genes (indicated by '*') and phenotypes/diseases (indicated by '#') in OMIM(MIM)?
+
+**QB1.8:** Do orthologs of BRCA2 exist in chicken? (check EnsEMBL, gene tab, orthologs/paralogs). If yes, what is the gene id?
+
+**QB1.9:** How deeply conserved (i.e. across taxonomic groups) is the TEX14 gene? (Gene tab --> Comparative genomics, gene tree)
+
+**QB1.10:** 
+
+**QB1.11:**
+
+**QB1.12:**
+
+**QB1.13:**
