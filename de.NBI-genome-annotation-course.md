@@ -131,8 +131,11 @@ To repeat-mask scaffold28, you can run RepeatMasker like so:
 `RepeatMasker -pa 4 -qq -species aves -xsmall scaffold.fa`  
 
 This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold ("soft"-masked because we specified `-xsmall`). In addition, we are using the `-qq` flag to speed up the process (at the cost of sensitivity). The following output files will be created:  
+
 `scaffold.fa.masked`: the "soft"-masked genome sequence (repeats are written in lower-case, all other nucleotides upper-case.  
+
 `scaffold.fa.out`: a list of repeat features.  
+
 `scaffold.fa.tbl`: a summary of the repeat annotation.  
 
 **QB2.1:** How many repeats were annotated in scaffold28? (check `scaffold.fa.out`)  
