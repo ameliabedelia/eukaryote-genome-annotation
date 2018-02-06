@@ -184,7 +184,6 @@ You can now compare the lift-over chicken annotation with your initial AUGUSTUS 
 Annotation of eukaryote genomes can be largely automated. One popular solution for this is the **MAKER** package, which uses a variety of tools to generate gene models: combining repeat masking, protein and transcript alignments as well as gene predictions (using e.g. AUGUSTUS and/or others). MAKER is able to produce reasonable results, especially for species with plenty of supporting evidence from protein sequences. However, it has some flaws (for example not being able to use raw RNA-seq data) and the resulting annotation should always be inspected manually and curated, if necessary.  
 
 To run MAKER on a single computer, you first need to generate the necessary control files:  
-
 `maker -CTL`  
 
 These files are read by MAKER to determine where to find e.g. different software tools and what settings to use. For you, the most important file is `maker_opts.ctl`. Open it with the text editor of your choice to fill out some information (you can find the files for this in the project folder):  
@@ -192,11 +191,9 @@ These files are read by MAKER to determine where to find e.g. different software
 `genome=scaffold.fa #genome sequence (fasta file or fasta embeded in GFF3 file)`  
 
 `est=transcript.fasta #set of ESTs or assembled mRNA-seq in fasta format`  
-
 You get this file from the exercise folder `transcripts`.  
 
 `protein=uniprot.fasta #protein sequence file in fasta format (i.e. from multiple organisms)`  
-
 You get this file from the exercise folder `uniprot`.  
 
 `model_org=chicken #select a model organism for the RepBase masking in RepeatMasker`  
@@ -204,13 +201,11 @@ You get this file from the exercise folder `uniprot`.
 `augustus_species=chicken #Augustus gene prediction species model`  
 
 Once all the information is there, MAKER should be able to annotate the scaffold:  
-
 `maker -c 4 -R`  
 
 This will run the annotation on 4 CPUs (`-c`), and in this case without the very time-consuming repeat-masking step (`-R`) (for an actual annotation project, you should of course NOT skip repeat-masking). MAKER still takes some time to run, so you can either take a coffee break, work on the questions in section B1 or start researching details for question QB2.5 (see below).  
 
 Once the program has finished, you can output the annotation using:  
-
 `gff3_merge -g -d scaffold.maker.output/scaffold_master_datastore_index.log`  
 
 This will only output the finished gene models, not the aligned proteins and transcripts (`-g`). The result file `scaffold.all.gff` can be loaded into IGV. What are your impressions, when you compare the MAKER gene models with your AUGUSTUS results and the chicken lift-over?  
@@ -220,7 +215,6 @@ This will only output the finished gene models, not the aligned proteins and tra
 Now that you have a first structural annotation, you next have to figure out what the genes you just annotated actually do. Based on that, you can start thinking about explanations for the male morphs in the ruff. A common way to functionally annotate genes is by similarity to genes that we already know the function of. A good source for this is the Uniprot database. We will simply use **BLAST** to match the predicted proteins from the ruff scaffold to this database and take the best hit as the most likely function. Please keep in mind that this is only a prediction and will not work well if your genome of interest is phylogenetically distant to other species with a functionally characterized proteome. Since we work with a bird and chicken is well studied, this should not be a big problem in our case.  
 
 First we output the protein sequences of the genes we annotated with MAKER in scaffold28:  
-
 `fasta_merge -d scaffold.maker.output/scaffold_master_datastore_index.log`  
 
 Next, we run BLAST against the small Uniprot database we have included with this exercise (subfolder `uniprot`):  
@@ -232,7 +226,6 @@ Next, we run BLAST against the small Uniprot database we have included with this
 The options `-query` and `-db` specify which file we want to blast against which database, respectively. `-evalue` determines how "good" the reported hits should be (the lower, the better) and `-outfmt` tells BLAST to produce "format 6" output, which is a tabular file.  
 
 MAKER can parse the BLAST output and add the information to the annotation file:  
-
 `maker_functional_gff uniprot.fasta blast.out scaffold.all.gff > scaffold.all.functions.gff`  
 
 When you load the resulting file into IGV, you should now get a description about the function of the genes.  
