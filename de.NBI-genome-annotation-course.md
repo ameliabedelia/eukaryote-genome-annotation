@@ -124,7 +124,9 @@ Annotation of eukaryote genomes commonly includes these steps:repeat masking, ge
 Identifying repetitive motifs in a eukaryotic genome sequence is important prior to annotation as repeat sequences are abundant but usually not part of actual protein-coding genes. Excluding them from the annotation process can therefore increase the quality of resulting gene models. The most popular tool for this purpose is **RepeatMasker**. It comes with a range of reference repeat sequences and uses a special version of Blast (and some other tools) to annotate repetitive motifs.  
 
 To repeat-mask scaffold28, you can run RepeatMasker like so:  
+
 `RepeatMasker -pa 4 -qq -species aves -xsmall scaffold.fa`  
+
 This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold (soft-masked because we specified `-xsmall`). In addition, we are using the `-qq`flag to speed up the process (at the cost of sensitivity). The following output files will be created:  
 `scaffold.fa.masked`: the "soft"-masked genome sequence (repeats are written in lower-case, all other nucleotides upper-case.  
 `scaffold.fa.out`: a list of repeat features.  
@@ -141,7 +143,7 @@ This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat s
 To execute AUGUSTUS type:  
 ´augustus --species=chicken --gff3=on scaffold.fa.masked > augustus.gff3`  
 
-This will start AUGUSTUS, using chicken as profile (`spceies`) and write the output in GFF3 format (which is the standard for annotations). The output file we call `augustus.gff3`.  
+This will start AUGUSTUS, using chicken as profile (`species`) and write the output in GFF3 format (which is the standard for annotations). The output file we call `augustus.gff3`.  
 
 You can load this file into IGV and check what sort of gene models AUGUSTUS predicted for scaffold28. To judge the quality of the models, you can visually compare them in IGV to the chicken lift-over gene structures.  
 
@@ -165,4 +167,78 @@ Open the hints file in a text editor and look at the information. It's a simple 
 
 `augustus --species=chicken extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic/extrinsic.E.cfg --gff3=on --hintsfile=hints.gff scaffold.fa.masked > augustus.with.hints.gff3`  
 
-Note that
+Note that this step takes a bit longer than before, as all predictions made by AUGUSTUS are not only ranked by how well they fit the model but also how well they fit the hints. The key here is the `extrinsic.E.cfg` file, which tells AUGUSTUS how to weigh the hints when predicting gene models (i.e. give them a high or low priority).  
+
+**3) Load the hint-supported gene models into IGV:  
+
+You can now compare the lift-over chicken annotation with your initial AUGUSTUS predictions and the predictions guided by intron hints. Has the addition of intron hints improved the gene prediction? Can you think of ways to make the annotation even better? What other types of hints can you think of and do you think that a computational prediction is sufficient for a high-quality gene build?  
+
+**QB2.3:** How are they doing the annotation for human? (hint: google "Sanger Vertebrate Annotation")  
+
+## B2.5. Automatic annotation with MAKER  
+
+Annotation of eukaryote genomes can be largely automated. One popular solution for this is the **MAKER** package, which uses a variety of tools to generate gene models: combining repeat masking, protein and transcript alignments as well as gene predictions (using e.g. AUGUSTUS and/or others). MAKER is able to produce reasonable results, especially for species with plenty of supporting evidence from protein sequences. However, it has some flaws (for example not being able to use raw RNA-seq data) and the resulting annotation should always be inspected manually and curated, if necessary.  
+
+To ru MAKER on a single computer, you first need to generate the necessary control files:  
+
+`maker -CTL`  
+
+These files are read by MAKER to determine where to find e.g. different software tools and what settings to use. For you, the most important file is `maker_opts.ctl`. Open it with the text editor of your choice to fill out some information (you can find the files for this in the project folder):  
+
+`genome=scaffold.fa #genome sequence (fasta file or fasta embeded in GFF3 file)`  
+
+`est=transcript.fasta #set of ESTs or assembled mRNA-seq in fasta format`  
+
+You get this file from the exercise folder `transcripts`.  
+
+`protein=uniprot.fasta #protein sequence file in fasta format (i.e. from multiple organisms)`  
+
+You get this file from the exercise folder `uniprot`.  
+
+`model_org=chicken #select a model organism for the RepBase masking in RepeatMasker`  
+
+`augustus_species=chicken #Augustus gene prediction species model`  
+
+Once all the information is there, MAKER should be able to annotate the scaffold:  
+
+`maker -c 4 -R`  
+
+This will run the annotation on 4 CPUs (`-c`), and in this case wihtout the very time-consuming repeat-masking step (`-R`) (for an actual annotation project, you should of course NOT skip repeat-masking). MAKER still takes some time to run, so you can either take a coffee break, work on the questions in section B1 or start researching details for question QB2.5 (see below).  
+
+Once the program has finished, you can output the annotation using:  
+
+`gff3_merge -g -d scaffold.maker.output/scaffold_master_datastore_index.log`  
+
+This will only output the finished gene models, not the aligned proteins and transcripts (`-g`). The result file `scaffold.all.gff` can be loaded into IGV. WHat are your impressions, when you compare the MAKER gene models with your AUGUSTUS results and the chicken lift-over?  
+
+##B2.6. Functional annotation using BLAST and MAKER  
+
+Now that you have a first structural annotation, you next have to figure out what the genes you just annotated actually do. Based on that, you can start thinking about explanations for the male morphs in the ruff. A common way to functionally annotate genes is by similarity to genes that we already know the function of. A good source for this is the Uniprot database. We will simply usse **BLAST** to match the predicted proteins from the ruff scaffold to this database and take the best hit as the most likely function. Please keep in mind that this is only a prediction and will not work well if your genome of interest is phylogenetically distant to other species with a functionally characterized proteome. Since we work with a bird and chicken is well studied, this should not be a big problem in our case.  
+
+First we output the protein sequences of the genes we annotated with MAKER in scaffold28:  
+
+`fasta_merge -d scaffold.maker.output/scaffold_master_datastore_index.log`  
+
+Next, we run BLAST against the small Uniprot database we have included with this exercise (subfolder `uniprot`):  
+
+`makeblastdb -in uniprot.fasta -dbtype prot`  
+
+`blastp -num_threads 4 -db uniprot.fasta -query scaffold.all.maker.proteins.fasta -evalue 0.001 -outfmt 6 -out blast.out`  
+
+The options `-db` and `-query` specify which file we want to blast against which database, `-evalue` determined how "good" the reported hits should be (the lower, the better) and `-outfmt` tells BLAST to produce "format 6" output, which is a tabular file.  
+
+MAKER can parse the BLAST output and add the information to the annotation file:  
+
+`maker_functional_gff uniprot.fasta blast.out scaffold.all.gff > scaffold.all.functions.gff`  
+
+When you load the resulting file into IGV, you should now get a description about the function of the genes.  
+
+##B2.7. Putting it all together  
+
+Check your annotated gene models within the region(s) identified by the Fst data to be in conflict between the "Independent" and "Satellite" phenotypes. Of special interest are the break point, i.e. the start and the end of the highlighted region.  
+
+**QB2.4:** Are genes overlapping these boundaries and what do they do?  (Hint: important gene to consider is CENPN)  
+
+**QB2.5:** Are there any other genes within the target region that could perhaps explain male morphological and behavioral changes? (Hint: important genes to consider are HSD17B2, SDR42E1 and MC1R; check where these are in your annotation and see if you can find functional information using, e.g. the Uniprot database or the EnsEMBL website)  
+
+**QB2.6:** CENPN is a heterozygous loss of function mutation in "Satellites" and "Feader" males. Can you think of how this relates to the lower frequency of the "Feader" and "Satellite" morphs? 
