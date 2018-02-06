@@ -83,7 +83,7 @@ What are the top-ranked proteins?
 # B2. Understanding male morphs in the ruff (*Philomachus pugnax*) - a genomics approach  
 One of the key goals of genome sequencing is to understand biological phenomena on a molecular level. Examples include the cause of genetic diseases as well as phenotypic or even behavioral traits. A nice example of the latter was published in the journal Nature Genetics in 2015 by Swedish researchers [(Lamichhaney et al. Nature Genetics, 2015)](https://www.nature.com/articles/ng.3430). They had observed that a Nordic bird species known as "ruff" (German: "Kampfläufer) has not one but three different male morphs. Male morphs are thought to be a display of fitness to attract mates. The morhps in the ruff are special though. In addition to the typical "ornamented" male (known as "Independents") there are also "Satellites" and "Feaders".  
 ![](images/ruff_morphs.png)    
-*picture from Farrell et al. 2013*  
+*(picture from Farrell et al. 2013)*  
 
 While the "normal" ("Independents") males make up 80-95% of the population, "Satellites" are found at frequencies of 5-20% and "Feaders" at less than 1%. Biologically, "Satellites" look similar to "Independents", with the exception that they have white, not colored feather ornaments and behave very passively. "Feaders" look almost like females and only have success mating when approaching females while the other males are busy "showing off".  
 
@@ -98,4 +98,21 @@ Copy that folder to your $HOME directory:
 `cp -R /mnt/lectures/biol258/Day07/B2 $HOME/Day07`  
 
 The copy in your home folder is where you will run the following analyses. The different data can be found in the various subfolders:  
-**1) The genome sequence (scaffold28):** 
+**1) The genome sequence (scaffold28):** `genome/scaffold.fa`  
+Load this into IGV ("Genomes" --> "Load from file")  
+This is only a fragment of scaffold28, as the analysis with the full sequence would take too long.
+
+**2) Fixation index data (Fst):** `Fst/Fst.bedgraph`  
+Load this into IGV ("File" --> "Load from file")  
+This data was generated through genomic resequencing and used to identify the region on scaffold28 that differs between the male morphs. High values suggest drastic differences.  
+
+**3) RNA-seq data (Bam):** `rnaseq/rnaseq.bam`  
+Load this into IGV ("File" --> "Load from file")  
+The BAM file includes mapped transcriptome reads. These can be used to visualize the raw read data in IGV as well as to generate splicing "hints"for the gene finder tool.  
+
+**4) Chicken "lift-over" (gff):** `liftover/chicken.gff`  
+Load this into IGV ("File" --> "Load from file")  
+This file contains gene models from the corresponding genomic region in chicken, superimposed onto the ruff scaffold. Projecting annotations between different species is a common way to perform simple comparative genomics and guide annotation efforts by providing a "reference".  
+
+**5) Uniprot data (fasta):** `uniprot/uniprot_birds.fasta`  
+Uniprot is a popular protein database that includes high-confidence as well as predicted protein sequences from a wide range of organisms. This dataset includes validated protein sequences from chicken, duck and zebra finch. Only protein sequences locating to our genomic region of interest are included to reduce the runtime of the annotation step.
