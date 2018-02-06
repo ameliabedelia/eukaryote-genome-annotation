@@ -67,7 +67,7 @@ How long is the longest protein product, how long the shortest?
 **QB1.8:** Do orthologs of BRCA2 exist in chicken? (check EnsEMBL "Gene tab" --> "orthologs/paralogs")  
 If yes, what is the gene id?
 
-**QB1.9:** How deeply conserved (*i.e.* across taxonomic groups) is the TEX14 gene? ("Gene tab" --> "Comparative genomics" --> "gene tree")
+**QB1.9:** How deeply conserved (i.e. across taxonomic groups) is the TEX14 gene? ("Gene tab" --> "Comparative genomics" --> "gene tree")
 
 **QB1.10:** How many exons does the TEX14 transcript with the longest protein product have? ("Gene tab" --> "Summary" --> "Show transcript table", then click on the transcript id)  
 How many of these are coding exons?  
@@ -77,7 +77,7 @@ How long is the transcript, how long the protein product?
 
 **QB1.12:**  Which parts of the HOXA1 gene are most conserved across 37 mammalian genomes? ("Location tab" --> "Configure this page" --> "Comparative genomics", enable the correct track)  
 
-**QB1.13:** Use EnsEMBL to get the protein sequence for the canonical (*i.e.* the dominant) transcript of the HOXA1 gene and blast it against the human proteome using the Blast/Blat tool provided by EnsEMBL (top of the page). How many hits do you find?  
+**QB1.13:** Use EnsEMBL to get the protein sequence for the canonical (i.e. the dominant) transcript of the HOXA1 gene and blast it against the human proteome using the Blast/Blat tool provided by EnsEMBL (top of the page). How many hits do you find?  
 What are the top-ranked proteins?  
 
 # B2. Understanding male morphs in the ruff (*Philomachus pugnax*) - a genomics approach  
@@ -89,7 +89,7 @@ While the "normal" ("Independents") males make up 80-95% of the population, "Sat
 
 There are almost no other examples from the animal kingdom where such a mating system exists. It was initially unclear how this could be explained genetically and why the less abundant morphs persist and are not outcompeted by the "Independent" phenotype. To answer the question, a genome sequence was generated.  
 
-In this exercise, you will analyze **_scaffold28_** of the ruff draft genome sequence and re-trace the analysis performed by the authors to see if you can repeat their results. For this, you will annotate the scaffold, assign functions to the predicted protein products and compare the daa with reference information to create a first hypothesis that can explain the male morph phenotypes.  
+In this exercise, you will analyze **_scaffold28_** of the ruff draft genome sequence and re-trace the analysis performed by the authors to see if you can repeat their results. For this, you will annotate the scaffold, assign functions to the predicted protein products and compare the data with reference information to create a first hypothesis that can explain the male morph phenotypes.  
 
 ## B2.1. Setting up  
 
@@ -108,7 +108,7 @@ This data was generated through genomic resequencing and used to identify the re
 
 **3) RNA-seq data (Bam):** `rnaseq/rnaseq.bam`  
 Load this into IGV ("File" --> "Load from file")  
-The BAM file includes mapped transcriptome reads. These can be used to visualize the raw read data in IGV as well as to generate splicing "hints"for the gene finder tool.  
+The BAM file includes mapped transcriptome reads. These can be used to visualize the raw read data in IGV as well as to generate splicing "hints" for the gene finder tool.  
 
 **4) Chicken "lift-over" (gff):** `liftover/chicken.gff`  
 Load this into IGV ("File" --> "Load from file")  
@@ -118,16 +118,16 @@ This file contains gene models from the corresponding genomic region in chicken,
 Uniprot is a popular protein database that includes high-confidence as well as predicted protein sequences from a wide range of organisms. This dataset includes validated protein sequences from chicken, duck and zebra finch. Only protein sequences locating to our genomic region of interest are included to reduce the runtime of the annotation step.  
 
 ## Annotating the ruff  
-Annotation of eukaryote genomes commonly includes these steps:repeat masking, generatin "evidences" from sequence data (proteins, transcripts) and combining these with gene finding tools that can use the evidence to generate "best-guess" gene models. Gene finders may either use generic "profiles" to predict genes, or specifically trained hidden-markov models (HMM) that more accurately reflect the sort of sequence motifs associated with genes in a particular species or taxonomic clade. Usually, these are trained on a large set of manually curated (verified) gene structures from high-quality reference genome(s). For the ruff, we will use the chicken reference.  
+Annotation of eukaryote genomes commonly includes these steps: repeat masking, generating "evidences" from sequence data (proteins, transcripts) and combining these with gene finding tools that can use the evidence to generate "best-guess" gene models. Gene finders may either use generic "profiles" to predict genes, or specifically trained hidden-markov models (HMM) that more accurately reflect the sort of sequence motifs associated with genes in a particular species or taxonomic clade. Usually, these are trained on a large set of manually curated (verified) gene structures from high-quality reference genome(s). For the ruff, we will use the chicken reference.  
 
 ## B2.2. Repeat-masking the genome  
-Identifying repetitive motifs in a eukaryotic genome sequence is important prior to annotation as repeat sequences are abundant but usually not part of actual protein-coding genes. Excluding them from the annotation process can therefore increase the quality of resulting gene models. The most popular tool for this purpose is **RepeatMasker**. It comes with a range of reference repeat sequences and uses a special version of Blast (and some other tools) to annotate repetitive motifs.  
+Identifying repetitive motifs in a eukaryotic genome sequence is important prior to annotation as repeat sequences are abundant but usually not part of actual protein-coding genes. Excluding them from the annotation process can therefore increase the quality of resulting gene models. The most popular tool for this purpose is **RepeatMasker**. It comes with a range of reference repeat sequences and uses a special version of BLAST (and some other tools) to annotate repetitive motifs.  
 
 To repeat-mask scaffold28, you can run RepeatMasker like so:  
 
 `RepeatMasker -pa 4 -qq -species aves -xsmall scaffold.fa`  
 
-This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold (soft-masked because we specified `-xsmall`). In addition, we are using the `-qq`flag to speed up the process (at the cost of sensitivity). The following output files will be created:  
+This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold ("soft"-masked because we specified `-xsmall`). In addition, we are using the `-qq` flag to speed up the process (at the cost of sensitivity). The following output files will be created:  
 `scaffold.fa.masked`: the "soft"-masked genome sequence (repeats are written in lower-case, all other nucleotides upper-case.  
 `scaffold.fa.out`: a list of repeat features.  
 `scaffold.fa.tbl`: a summary of the repeat annotation.  
@@ -138,12 +138,12 @@ This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat s
 
 ## B2.3. Annotating with AUGUSTUS  
 
-**AUGUSTUS** is a gene prediction tool that uses HMMs (optionally combined with "evidence" data form sequence alignments) to find gene models in a genome sequence. For the ruff, we can use the chicken profile models. Birds have fairly well-conserved gene structures and sequences. As sequence, use the repeat-masked scaffold you generated in the previous section (`scaffold.fa.masked`).  
+**AUGUSTUS** is a gene prediction tool that uses HMMs (optionally combined with "evidence" data from sequence alignments) to find gene models in a genome sequence. For the ruff, we can use the chicken profile models. Birds have fairly well-conserved gene structures and sequences. As sequence, use the repeat-masked scaffold you generated in the previous section (`scaffold.fa.masked`).  
 
 To execute AUGUSTUS type:  
 ´augustus --species=chicken --gff3=on scaffold.fa.masked > augustus.gff3`  
 
-This will start AUGUSTUS, using chicken as profile (`species`) and write the output in GFF3 format (which is the standard for annotations). The output file we call `augustus.gff3`.  
+This will start AUGUSTUS, using chicken as profile (`--species`) and write the output in GFF3 format (which is the standard for annotations). The output file will be called `augustus.gff3`.  
 
 You can load this file into IGV and check what sort of gene models AUGUSTUS predicted for scaffold28. To judge the quality of the models, you can visually compare them in IGV to the chicken lift-over gene structures.  
 
@@ -161,7 +161,7 @@ In the previous example, you ran AUGUSTUS without any helpful information, with 
 
 `bam2hints --intronsonly --in=rnaseq.sorted.filtered.final.bam --out=hints.gff`  
 
-Open the hints file in a text editor and look at the information. It's a simple tabular format specifying the location of an intron. One interesting bit is the key-value pair "multi" as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this "hint"). The more support a hint has, the stronger it is being considered.  
+Open the hints file in a text editor and look at the information. It's a simple tabular format specifying the location of an intron. One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this "hint"). The more support a hint has, the stronger it is being considered.  
 
 **2) Run AUGUSTUS with the newly generated hints:  
 
@@ -179,7 +179,7 @@ You can now compare the lift-over chicken annotation with your initial AUGUSTUS 
 
 Annotation of eukaryote genomes can be largely automated. One popular solution for this is the **MAKER** package, which uses a variety of tools to generate gene models: combining repeat masking, protein and transcript alignments as well as gene predictions (using e.g. AUGUSTUS and/or others). MAKER is able to produce reasonable results, especially for species with plenty of supporting evidence from protein sequences. However, it has some flaws (for example not being able to use raw RNA-seq data) and the resulting annotation should always be inspected manually and curated, if necessary.  
 
-To ru MAKER on a single computer, you first need to generate the necessary control files:  
+To run MAKER on a single computer, you first need to generate the necessary control files:  
 
 `maker -CTL`  
 
@@ -203,17 +203,17 @@ Once all the information is there, MAKER should be able to annotate the scaffold
 
 `maker -c 4 -R`  
 
-This will run the annotation on 4 CPUs (`-c`), and in this case wihtout the very time-consuming repeat-masking step (`-R`) (for an actual annotation project, you should of course NOT skip repeat-masking). MAKER still takes some time to run, so you can either take a coffee break, work on the questions in section B1 or start researching details for question QB2.5 (see below).  
+This will run the annotation on 4 CPUs (`-c`), and in this case without the very time-consuming repeat-masking step (`-R`) (for an actual annotation project, you should of course NOT skip repeat-masking). MAKER still takes some time to run, so you can either take a coffee break, work on the questions in section B1 or start researching details for question QB2.5 (see below).  
 
 Once the program has finished, you can output the annotation using:  
 
 `gff3_merge -g -d scaffold.maker.output/scaffold_master_datastore_index.log`  
 
-This will only output the finished gene models, not the aligned proteins and transcripts (`-g`). The result file `scaffold.all.gff` can be loaded into IGV. WHat are your impressions, when you compare the MAKER gene models with your AUGUSTUS results and the chicken lift-over?  
+This will only output the finished gene models, not the aligned proteins and transcripts (`-g`). The result file `scaffold.all.gff` can be loaded into IGV. What are your impressions, when you compare the MAKER gene models with your AUGUSTUS results and the chicken lift-over?  
 
 ##B2.6. Functional annotation using BLAST and MAKER  
 
-Now that you have a first structural annotation, you next have to figure out what the genes you just annotated actually do. Based on that, you can start thinking about explanations for the male morphs in the ruff. A common way to functionally annotate genes is by similarity to genes that we already know the function of. A good source for this is the Uniprot database. We will simply usse **BLAST** to match the predicted proteins from the ruff scaffold to this database and take the best hit as the most likely function. Please keep in mind that this is only a prediction and will not work well if your genome of interest is phylogenetically distant to other species with a functionally characterized proteome. Since we work with a bird and chicken is well studied, this should not be a big problem in our case.  
+Now that you have a first structural annotation, you next have to figure out what the genes you just annotated actually do. Based on that, you can start thinking about explanations for the male morphs in the ruff. A common way to functionally annotate genes is by similarity to genes that we already know the function of. A good source for this is the Uniprot database. We will simply use **BLAST** to match the predicted proteins from the ruff scaffold to this database and take the best hit as the most likely function. Please keep in mind that this is only a prediction and will not work well if your genome of interest is phylogenetically distant to other species with a functionally characterized proteome. Since we work with a bird and chicken is well studied, this should not be a big problem in our case.  
 
 First we output the protein sequences of the genes we annotated with MAKER in scaffold28:  
 
@@ -225,7 +225,7 @@ Next, we run BLAST against the small Uniprot database we have included with this
 
 `blastp -num_threads 4 -db uniprot.fasta -query scaffold.all.maker.proteins.fasta -evalue 0.001 -outfmt 6 -out blast.out`  
 
-The options `-db` and `-query` specify which file we want to blast against which database, `-evalue` determined how "good" the reported hits should be (the lower, the better) and `-outfmt` tells BLAST to produce "format 6" output, which is a tabular file.  
+The options `-query` and `-db` specify which file we want to blast against which database, respectively. `-evalue` determines how "good" the reported hits should be (the lower, the better) and `-outfmt` tells BLAST to produce "format 6" output, which is a tabular file.  
 
 MAKER can parse the BLAST output and add the information to the annotation file:  
 
@@ -235,7 +235,7 @@ When you load the resulting file into IGV, you should now get a description abou
 
 ##B2.7. Putting it all together  
 
-Check your annotated gene models within the region(s) identified by the Fst data to be in conflict between the "Independent" and "Satellite" phenotypes. Of special interest are the break point, i.e. the start and the end of the highlighted region.  
+Check your annotated gene models within the region(s) identified by the Fst data to be in conflict between the "Independent" and "Satellite" phenotypes. Of special interest are the break points, i.e. the start and the end of the highlighted region.  
 
 **QB2.4:** Are genes overlapping these boundaries and what do they do?  (Hint: important gene to consider is CENPN)  
 
