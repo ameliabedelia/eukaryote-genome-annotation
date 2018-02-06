@@ -94,10 +94,13 @@ In this exercise, you will analyze **_scaffold28_** of the ruff draft genome seq
 ## B2.1. Setting up  
 
 Data for the exercises is located in the folder `/mnt/lectures/biol258/Day07/B2`.  
+
 Copy that folder to your $HOME directory:  
+
 `cp -R /mnt/lectures/biol258/Day07/B2 $HOME/Day07`  
 
 The copy in your home folder is where you will run the following analyses. The different data can be found in the various subfolders:  
+
 **1) The genome sequence (scaffold28):** `genome/scaffold.fa`  
 Load this into IGV ("Genomes" --> "Load from file")  
 This is only a fragment of scaffold28, as the analysis with the full sequence would take too long.
