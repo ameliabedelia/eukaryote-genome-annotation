@@ -121,4 +121,32 @@ Uniprot is a popular protein database that includes high-confidence as well as p
 Annotation of eukaryote genomes commonly includes these steps:repeat masking, generatin "evidences" from sequence data (proteins, transcripts) and combining these with gene finding tools that can use the evidence to generate "best-guess" gene models. Gene finders may either use generic "profiles" to predict genes, or specifically trained hidden-markov models (HMM) that more accurately reflect the sort of sequence motifs associated with genes in a particular species or taxonomic clade. Usually, these are trained on a large set of manually curated (verified) gene structures from high-quality reference genome(s). For the ruff, we will use the chicken reference.  
 
 ## B2.2. Repeat-masking the genome  
-I
+Identifying repetitive motifs in a eukaryotic genome sequence is important prior to annotation as repeat sequences are abundant but usually not part of actual protein-coding genes. Excluding them from the annotation process can therefore increase the quality of resulting gene models. The most popular tool for this purpose is **RepeatMasker**. It comes with a range of reference repeat sequences and uses a special version of Blast (and some other tools) to annotate repetitive motifs.  
+
+To repeat-mask scaffold28, you can run RepeatMasker like so:  
+`RepeatMasker -pa 4 -qq -species aves -xsmall scaffold.fa`  
+This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold (soft-masked because we specified `-xsmall`). In addition, we are using the `-qq`flag to speed up the process (at the cost of sensitivity). The following output files will be created:  
+`scaffold.fa.masked`: the "soft"-masked genome sequence (repeats are written in lower-case, all other nucleotides upper-case.  
+`scaffold.fa.out`: a list of repeat features.  
+`scaffold.fa.tbl`: a summary of the repeat annotation.  
+
+**QB2.1:** How many repeats were annotated in scaffold28? (check `scaffold.fa.out`)  
+
+**QB2.2:** How many of those are "LINE" elements?  
+
+## B2.3. Annotating with AUGUSTUS  
+
+**AUGUSTUS** is a gene prediction tool that uses HMMs (optionally combined with "evidence" data form sequence alignments) to find gene models in a genome sequence. For the ruff, we can use the chicken profile models. Birds have fairly well-conserved gene structures and sequences. As sequence, use the repeat-masked scaffold you generated in the previous section (`scaffold.fa.masked`).  
+
+To execute AUGUSTUS type:  
+´augustus --species=chicken --gff3=on scaffold.fa.masked > augustus.gff3`  
+
+This will start AUGUSTUS, using chicken as profile (`spceies`) and write the output in GFF3 format (which is the standard for annotations). The output file we call `augustus.gff3`.  
+
+You can load this file into IGV and check what sort of gene models AUGUSTUS predicted for scaffold28. To judge the quality of the models, you can visually compare them in IGV to the chicken lift-over gene structures.  
+
+## B2.4. Re-run AUGUSTUS with "hints" from RNA-seq experiments  
+
+In the previous example, you ran AUGUSTUS without any helpful information, with decent (?) results. However, as you will learn with the course, there is a very good source of information for the presence of introns and exons in a genome sequence: RNA-seq data. As RNA-seq is a snapshot of what is transcribed from a genome, it would be useful to tell AUGUSTUS where there should be an intron or an exon instead of having it guess it. This is called "providing hints". So, let's generate hints and run AUGUSTUS again.  
+
+** 1)
