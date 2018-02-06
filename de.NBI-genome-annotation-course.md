@@ -210,7 +210,7 @@ Once the program has finished, you can output the annotation using:
 
 This will only output the finished gene models, not the aligned proteins and transcripts (`-g`). The result file `scaffold.all.gff` can be loaded into IGV. What are your impressions, when you compare the MAKER gene models with your AUGUSTUS results and the chicken lift-over?  
 
-##B2.6. Functional annotation using BLAST and MAKER  
+## B2.6. Functional annotation using BLAST and MAKER  
 
 Now that you have a first structural annotation, you next have to figure out what the genes you just annotated actually do. Based on that, you can start thinking about explanations for the male morphs in the ruff. A common way to functionally annotate genes is by similarity to genes that we already know the function of. A good source for this is the Uniprot database. We will simply use **BLAST** to match the predicted proteins from the ruff scaffold to this database and take the best hit as the most likely function. Please keep in mind that this is only a prediction and will not work well if your genome of interest is phylogenetically distant to other species with a functionally characterized proteome. Since we work with a bird and chicken is well studied, this should not be a big problem in our case.  
 
@@ -230,7 +230,7 @@ MAKER can parse the BLAST output and add the information to the annotation file:
 
 When you load the resulting file into IGV, you should now get a description about the function of the genes.  
 
-##B2.7. Putting it all together  
+## B2.7. Putting it all together  
 
 Check your annotated gene models within the region(s) identified by the Fst data to be in conflict between the "Independent" and "Satellite" phenotypes. Of special interest are the break points, i.e. the start and the end of the highlighted region.  
 
