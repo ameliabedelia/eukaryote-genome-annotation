@@ -147,7 +147,7 @@ This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat s
 **AUGUSTUS** is a gene prediction tool that uses HMMs (optionally combined with "evidence" data from sequence alignments) to find gene models in a genome sequence. For the ruff, we can use the chicken profile models. Birds have fairly well-conserved gene structures and sequences. As sequence, use the repeat-masked scaffold you generated in the previous section (`scaffold.fa.masked`).  
 
 To execute AUGUSTUS type:  
-´augustus --species=chicken --gff3=on scaffold.fa.masked > augustus.gff3`  
+`augustus --species=chicken --gff3=on scaffold.fa.masked > augustus.gff3`  
 
 This will start AUGUSTUS, using chicken as profile (`--species`) and write the output in GFF3 format (which is the standard for annotations). The output file will be called `augustus.gff3`.  
 
