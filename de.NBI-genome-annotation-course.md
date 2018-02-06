@@ -96,7 +96,6 @@ In this exercise, you will analyze **_scaffold28_** of the ruff draft genome seq
 Data for the exercises is located in the folder `/mnt/lectures/biol258/Day07/B2`.  
 
 Copy that folder to your $HOME directory:  
-
 `cp -R /mnt/lectures/biol258/Day07/B2 $HOME/Day07`  
 
 The copy in your home folder is where you will run the following analyses. The different data can be found in the various subfolders:  
@@ -127,7 +126,6 @@ Annotation of eukaryote genomes commonly includes these steps: repeat masking, g
 Identifying repetitive motifs in a eukaryotic genome sequence is important prior to annotation as repeat sequences are abundant but usually not part of actual protein-coding genes. Excluding them from the annotation process can therefore increase the quality of resulting gene models. The most popular tool for this purpose is **RepeatMasker**. It comes with a range of reference repeat sequences and uses a special version of BLAST (and some other tools) to annotate repetitive motifs.  
 
 To repeat-mask scaffold28, you can run RepeatMasker like so:  
-
 `RepeatMasker -pa 4 -qq -species aves -xsmall scaffold.fa`  
 
 This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold ("soft"-masked because we specified `-xsmall`). In addition, we are using the `-qq` flag to speed up the process (at the cost of sensitivity). The following output files will be created:  
