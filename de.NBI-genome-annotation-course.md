@@ -70,28 +70,12 @@ In this exercise, you will analyze **_scaffold28_** of the ruff draft genome seq
 
 ## B2.1. Setting up  
 
-For these exercises you will need the **IGV genome browser**. The program can be copied from this location to your home folder `/mnt/lectures/biol258/Day7/IGV` using:  
+For these exercises you will need the **IGV genome browser**. The program can be found in the folder `/mnt/lectures/biol258/Day7/IGV` and you can copy it to your home directory loke so:  
 `cp -R /mnt/lectures/biol258/Day07/IGV $HOME`  
 
 *Please note! The commands given in this wiki are examples and they assume that you make sure that the input and output files are where they should be.*  
 *Some times you may have to copy files to your current directory or expand the example commands to include correct/full paths!*  
   
-### Software containers  
-Many of the tools used in this exercise are pretty complex to install. In order to avoid having to install them on each computer we are going to use software *containers*. These are *portable* environments in which you can install an operating system, a program or many programs and then copy the whole thing to whichever computer you like to run the software. Popular solutions are Docker and **Singularity** (which we will use here). The way to run a tool inside a container is pretty straight-forward:  
-
-If you would run a command without container like this:  
-`samtools sort -o rnaseq.sorted.bam rnaseq.bam`  
-
-You would run the same command with a container like this:  
-`singularity exec container.img samtools sort -o rnaseq.sorted.bam rnaseq.bam`  
-
-Here `container.img` is a place holder, which you have to replace by the name of the actual container.  
-
-Copy the singularity image for this exercise to your local hard drive:  
-`cp -R /mnt/lectures/biol258/Day07/singularity.img $HOME`  
-
-In order to be able to run the examples in the following exercises, you will have to add the following code in front of each command:  
-`singularity exec $HOME/singularity.img <command execution here>`  
 
 Data for the exercises is located in the folder `/mnt/lectures/biol258/Day07/B2`.  
 
@@ -118,6 +102,23 @@ This file contains gene models from the corresponding genomic region in chicken,
 
 **5) Uniprot data (fasta):** `uniprot/uniprot_birds.fasta`  
 Uniprot is a popular protein database that includes high-confidence as well as predicted protein sequences from a wide range of organisms. This dataset includes validated protein sequences from chicken, duck and zebra finch. Only protein sequences locating to our genomic region of interest are included to reduce the runtime of the annotation step.  
+
+### Software containers  
+Many of the tools used in this exercise are pretty complex to install. In order to avoid having to install them on each computer we are going to use software *containers*. These are *portable* environments in which you can install an operating system, a program or many programs and then copy the whole thing to whichever computer you like to run the software. Popular solutions are Docker and **Singularity** (which we will use here). The way to run a tool inside a container is pretty straight-forward:  
+
+If you would run a command without container like this:  
+`samtools sort -o rnaseq.sorted.bam rnaseq.bam`  
+
+You would run the same command with a container like this:  
+`singularity exec container.img samtools sort -o rnaseq.sorted.bam rnaseq.bam`  
+
+Here `container.img` is a place holder, which you have to replace by the name of the actual container.  
+
+Copy the singularity image for this exercise to your local hard drive:  
+`cp -R /mnt/lectures/biol258/Day07/singularity.img $HOME`  
+
+In order to be able to run the examples in the following exercises, you will have to add the following code in front of each command:  
+`singularity exec $HOME/singularity.img <command execution here>`  
 
 ## Annotating the ruff  
 Annotation of eukaryote genomes commonly includes these steps: repeat masking, generating "evidences" from sequence data (proteins, transcripts) and combining these with gene finding tools that can use the evidence to generate "best-guess" gene models. Gene finders may either use generic "profiles" to predict genes, or specifically trained hidden-markov models (HMM) that more accurately reflect the sort of sequence motifs associated with genes in a particular species or taxonomic clade. Usually, these are trained on a large set of manually curated (verified) gene structures from high-quality reference genome(s). For the ruff, we will use the chicken reference.  
