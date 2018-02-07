@@ -156,7 +156,7 @@ You can load this file into IGV and check what sort of gene models AUGUSTUS pred
 
 In the previous example, you ran AUGUSTUS without any helpful information, with decent (?) results. However, as you will learn with the course, there is a very good source of information for the presence of introns and exons in a genome sequence: RNA-seq data. As RNA-seq is a snapshot of what is transcribed from a genome, it would be useful to tell AUGUSTUS where there should be an intron or an exon instead of having it guess it. This is called "providing hints". So, let's generate hints and run AUGUSTUS again.  
 
-**1) Convert the RNA-seq BAM file into hints for AUGUSTUS (fill in file names as appropiate):  
+**1)** Convert the RNA-seq BAM file into hints for AUGUSTUS (fill in file names as appropiate):  
 
 `samtools sort -n rnaseq.bam rnaseq.sorted`  
 
@@ -168,13 +168,13 @@ In the previous example, you ran AUGUSTUS without any helpful information, with 
 
 Open the hints file in a text editor and look at the information. It's a simple tabular format specifying the location of an intron. One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this "hint"). The more support a hint has, the stronger it is being considered.  
 
-**2) Run AUGUSTUS with the newly generated hints:  
+**2)** Run AUGUSTUS with the newly generated hints:  
 
 `augustus --species=chicken extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic/extrinsic.E.cfg --gff3=on --hintsfile=hints.gff scaffold.fa.masked > augustus.with.hints.gff3`  
 
 Note that this step takes a bit longer than before, as all predictions made by AUGUSTUS are not only ranked by how well they fit the model but also how well they fit the hints. The key here is the `extrinsic.E.cfg` file, which tells AUGUSTUS how to weigh the hints when predicting gene models (i.e. give them a high or low priority).  
 
-**3) Load the hint-supported gene models into IGV:  
+**3)** Load the hint-supported gene models into IGV:  
 
 You can now compare the lift-over chicken annotation with your initial AUGUSTUS predictions and the predictions guided by intron hints. Has the addition of intron hints improved the gene prediction? Can you think of ways to make the annotation even better? What other types of hints can you think of and do you think that a computational prediction is sufficient for a high-quality gene build?  
 
