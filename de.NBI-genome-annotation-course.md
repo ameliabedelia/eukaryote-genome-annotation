@@ -129,7 +129,7 @@ In order to be able to run the examples in the following exercises, you will hav
 `singularity exec $HOME/singularity.img <command execution here>`  
 
 ## Annotating the ruff  
-Annotation of eukaryote genomes commonly includes these steps: repeat masking, generating "evidences" from sequence data (proteins, transcripts) and combining these with gene finding tools that can use the evidence to generate "best-guess" gene models. Gene finders may either use generic "profiles" to predict genes, or specifically trained hidden-markov models (HMM) that more accurately reflect the sort of sequence motifs associated with genes in a particular species or taxonomic clade. Usually, these are trained on a large set of manually curated (verified) gene structures from high-quality reference genome(s). For the ruff, we will use the chicken reference.  
+Annotation of eukaryote genomes commonly includes these steps: repeat masking, generating "evidences" from sequence data (proteins, transcripts) and combining these with gene finding tools that can use the evidence to generate "best-guess" gene models.   
 
 ## B2.2. Repeat-masking the genome  
 Identifying repetitive motifs in a eukaryotic genome sequence is important prior to annotation as repeat sequences are abundant but usually not part of actual protein-coding genes. Excluding them from the annotation process can therefore increase the quality of resulting gene models. The most popular tool for this purpose is **RepeatMasker**. It comes with a range of reference repeat sequences and uses a special version of BLAST (and some other tools) to annotate repetitive motifs.  
@@ -150,6 +150,8 @@ This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat s
 **QB2.2:** How many of those are "LINE" elements?  
 
 ## B2.3. Annotating with AUGUSTUS  
+
+Gene finders may either use generic "profiles" to predict genes, or specifically trained hidden-markov models (HMM) that more accurately reflect the sort of sequence motifs associated with genes in a particular species or taxonomic clade. Usually, these are trained on a large set of manually curated (verified) gene structures from high-quality reference genome(s).  
 
 **AUGUSTUS** is a gene prediction tool that uses HMMs (optionally combined with "evidence" data from sequence alignments) to find gene models in a genome sequence. For the ruff, we can use the chicken profile models. Birds have fairly well-conserved gene structures and sequences. As sequence, use the repeat-masked scaffold you generated in the previous section (`scaffold.fa.masked`).  
 
