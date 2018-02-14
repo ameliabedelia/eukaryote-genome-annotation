@@ -169,8 +169,11 @@ Annotators spend a lot of time just adjusting file formats to following the rule
 
 Check in a text editor that `scaffold_repmask.gff` has GFF format (9 columns). 
 
-Load the masked genome `scaffold.fa.masked` ("Genomes" --> "Load from file") and the annotated repeats `scaffold_repmask.gff` ("File" --> "Load from file") in IGV. Zoom-in until you can see the nucleotides. Can you find an example of a soft-masked sequence based on the annotated repeats? 
+Load the masked genome `scaffold.fa.masked` ("Genomes" --> "Load from file") and the annotated repeats `scaffold_repmask.gff` ("File" --> "Load from file") in IGV. Zoom-in until you can see the nucleotides. 
 
+**QB2.5:** Can you find an example of a soft-masked sequence based on the annotated repeats? Write its coordinates.  
+
+*Example:*
 ![](images/IGV_repeat.png) 
 
 
@@ -186,6 +189,12 @@ To execute AUGUSTUS type:
 This will start AUGUSTUS, using chicken as profile (`--species`) and write the output in GFF3 format (which is the standard for annotations). The output file will be called `augustus.gff3`.  
 
 You can load this file into IGV and check what sort of gene models AUGUSTUS predicted for scaffold28. To judge the quality of the models, you can visually compare them in IGV to the chicken lift-over gene structures.  
+
+*If you have loaded the `scaffold.fa.masked` sequence in the previous section, you will only have the `scaffold_repmask.gff` track. Plase load again the files `Fst.bedgraph`, `rnaseq.bam`and `chicken.gff`.* 
+
+**QB2.6:** Can you find an augustus predicition which is the same or very similar to the chicken lift-over? Write its name ("gXX"). 
+
+**QB2.7:** Go to position 6,180 kbp. Augustus has predicted gene g112 as a merge of the chicken genes ENSGALT00000000717 and ENSGALT00000000179. Based on the RNA-seq evidence, which one do you think is right?  
 
 ## B2.4. Re-run AUGUSTUS with "hints" from RNA-seq experiments  
 
