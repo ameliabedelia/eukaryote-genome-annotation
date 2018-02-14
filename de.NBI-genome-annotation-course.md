@@ -139,7 +139,8 @@ To repeat-mask scaffold28, you can run RepeatMasker like so:
 
 This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold ("soft"-masked because we specified `-xsmall`). In addition, we are using the `-qq` flag to speed up the process (at the cost of sensitivity). The following output files will be created:  
 
-`scaffold.fa.masked`: the "soft"-masked genome sequence (repeats are written in lower-case, all other nucleotides upper-case.  
+`scaffold.fa.masked`: the "soft"-masked genome sequence. 
+In "soft"-masking, repeats are written in lower-case, all other nucleotides upper-case. In contrast, in "hard"-masking repeats are replaces by "N"s.  
 
 `scaffold.fa.out`: a list of repeat features.  
 
@@ -148,6 +149,18 @@ This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat s
 **QB2.1:** How many repeats were annotated in scaffold28? (check `scaffold.fa.out`)  
 
 **QB2.2:** How many of those are "LINE" elements?  
+
+**QB2.3:** Look at the first lines of the repeat-masked genome (type, for example, `head scaffold.fa.masked` to see the first 10 lines), have any of the first nucleotides been masked? 
+
+**QB2.4:** What is the position of the first repeat? (type, for example, `head scaffold.fa.out`). 
+
+Annotators spend a lot of time just adjusting file formats to following the rules of different programs. `scaffold.fa.out` has a column format similar to GFF, but not quite the same. We could transform it into GFF format like so: 
+
+`cat scaffold.fa.out | tail -n +4 | perl -ne 'chomp; s/^\s+//; @t = split(/\s+/); print $t[4]."\t"."repmask\trepeat\t".$t[5]."\t".$t[6]."\t0\t.\t.\tclass=".$t[10]."\n";' > scaffold_repmask.gff` 
+
+Check in a text editor that `scaffold_repmask.gff` has GFF format (9 columns). 
+
+Load the masked genome `scaffold.fa.masked` ("Genomes" --> "Load from file") and the annotated repeats `scaffold_repmask.gff` ("File" --> "Load from file") in IGV. Zoom-in until you can see the nucleotides. Can you find an example of a soft-masked sequence based on the annotated repeats? 
 
 ## B2.3. Annotating with AUGUSTUS  
 
