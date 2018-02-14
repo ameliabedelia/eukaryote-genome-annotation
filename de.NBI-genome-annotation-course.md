@@ -111,6 +111,8 @@ This file contains gene models from the corresponding genomic region in chicken,
 **5) Uniprot data (fasta):** `uniprot/uniprot_birds.fasta`  
 Uniprot is a popular protein database that includes high-confidence as well as predicted protein sequences from a wide range of organisms. This dataset includes validated protein sequences from chicken, duck and zebra finch. Only protein sequences locating to our genomic region of interest are included to reduce the runtime of the annotation step.  
 
+![](images/IGV_start.png) 
+
 ### Software containers  
 Many of the tools used in this exercise are pretty complex to install. In order to avoid having to install them on each computer we are going to use software *containers*. These are *portable* environments in which you can install an operating system, a program or many programs and then copy the whole thing to whichever computer you like to run the software. Popular solutions are Docker and **Singularity** (which we will use here). The way to run a tool inside a container is pretty straight-forward:  
 
@@ -154,13 +156,16 @@ In "soft"-masking, repeats are written in lower-case, all other nucleotides uppe
 
 **QB2.4:** What is the position of the first repeat? (type, for example, `head scaffold.fa.out`). 
 
-Annotators spend a lot of time just adjusting file formats to following the rules of different programs. `scaffold.fa.out` has a column format similar to GFF, but not quite the same. We could transform it into GFF format like so: 
+Annotators spend a lot of time just adjusting file formats to following the rules of different programs. `scaffold.fa.out` has a column format similar to GFF, but not quite the same. We could transform it into GFF format like so: (be careful if you copy and paste, it's a single line of code)  
 
 `cat scaffold.fa.out | tail -n +4 | perl -ne 'chomp; s/^\s+//; @t = split(/\s+/); print $t[4]."\t"."repmask\trepeat\t".$t[5]."\t".$t[6]."\t0\t.\t.\tclass=".$t[10]."\n";' > scaffold_repmask.gff` 
 
 Check in a text editor that `scaffold_repmask.gff` has GFF format (9 columns). 
 
 Load the masked genome `scaffold.fa.masked` ("Genomes" --> "Load from file") and the annotated repeats `scaffold_repmask.gff` ("File" --> "Load from file") in IGV. Zoom-in until you can see the nucleotides. Can you find an example of a soft-masked sequence based on the annotated repeats? 
+
+![](images/IGV_repeat.png) 
+
 
 ## B2.3. Annotating with AUGUSTUS  
 
