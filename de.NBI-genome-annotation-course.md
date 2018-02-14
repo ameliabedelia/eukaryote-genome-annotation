@@ -164,6 +164,9 @@ Check in a text editor that `scaffold_repmask.gff` has GFF format (9 columns).
 
 Load the masked genome `scaffold.fa.masked` ("Genomes" --> "Load from file") and the annotated repeats `scaffold_repmask.gff` ("File" --> "Load from file") in IGV. Zoom-in until you can see the nucleotides. Can you find an example of a soft-masked sequence based on the annotated repeats? 
 
+![](images/IGV_repeat.png) 
+
+
 ## B2.3. Annotating with AUGUSTUS  
 
 Gene finders may either use generic "profiles" to predict genes, or specifically trained hidden-markov models (HMM) that more accurately reflect the sort of sequence motifs associated with genes in a particular species or taxonomic clade. Usually, these are trained on a large set of manually curated (verified) gene structures from high-quality reference genome(s).  
