@@ -70,6 +70,8 @@ In this exercise, you will analyze **_scaffold28_** of the ruff draft genome seq
 
 ## B2.1. Setting up  
 
+You will execute the following tasks on the command line. If you are new at this, you can have a look at this cheat sheet for help: https://learncodethehardway.org/unix/bash_cheat_sheet.pdf . And do not hesitate to ask us for help. 
+
 For these exercises you will need the **IGV genome browser**. The program can be found in the folder `/mnt/lectures/biol258/Day7/IGV` and you can copy it to your home directory like so:  
 `cp -R /mnt/lectures/biol258/Day07/IGV $HOME`  
 
