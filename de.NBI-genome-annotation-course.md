@@ -70,7 +70,7 @@ In this exercise, you will analyze **_scaffold28_** of the ruff draft genome seq
 
 ## B2.1. Setting up  
 
-For these exercises you will need the **IGV genome browser**. The program can be found in the folder `/mnt/lectures/biol258/Day7/IGV` and you can copy it to your home directory loke so:  
+For these exercises you will need the **IGV genome browser**. The program can be found in the folder `/mnt/lectures/biol258/Day7/IGV` and you can copy it to your home directory like so:  
 `cp -R /mnt/lectures/biol258/Day07/IGV $HOME`  
 
 *Please note! The commands given in this wiki are examples and they assume that you make sure that the input and output files are where they should be.*  
