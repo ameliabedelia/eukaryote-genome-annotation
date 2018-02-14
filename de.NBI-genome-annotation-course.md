@@ -70,7 +70,7 @@ In this exercise, you will analyze **_scaffold28_** of the ruff draft genome seq
 
 ## B2.1. Setting up  
 
-You will execute the following tasks on the command line. If you are new at this, you can have a look at any of these cheat sheets for help: 
+You will execute the following tasks on the command line. If you are new at this, you can have a look at one of these cheat sheets for help: 
 
 https://learncodethehardway.org/unix/bash_cheat_sheet.pdf 
 
