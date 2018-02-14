@@ -74,7 +74,7 @@ For these exercises you will need the **IGV genome browser**. The program can be
 `cp -R /mnt/lectures/biol258/Day07/IGV $HOME`  
 
 *Please note! The commands given in this wiki are examples and they assume that you make sure that the input and output files are where they should be.*  
-*Some times you may have to copy files to your current directory or expand the example commands to include correct/full paths!*  
+*Sometimes you may have to copy files to your current directory or expand the example commands to include correct/full paths!*  
   
 
 Data for the exercises is located in the folder `/mnt/lectures/biol258/Day07/B2`.  
