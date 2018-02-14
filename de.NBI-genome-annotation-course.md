@@ -192,7 +192,7 @@ You can load this file into IGV and check what sort of gene models AUGUSTUS pred
 
 *If you have loaded the `scaffold.fa.masked` sequence in the previous section, you will only have the `scaffold_repmask.gff` track. Plase load again the files `Fst.bedgraph`, `rnaseq.bam`and `chicken.gff`.* 
 
-**QB2.6:** Can you find an augustus predicition which is the same or very similar to the chicken lift-over? Write its name ("gXX"). 
+**QB2.6:** Can you find an augustus predicition which is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but Augustus has not predicted them in the way we have run it. Search similar predicitions based only on coding sequence).
 
 **QB2.7:** Go to position 6,180 kbp. Augustus has predicted gene g112 as a merge of the chicken genes ENSGALT00000000717 and ENSGALT00000000179. Based on the RNA-seq evidence, which one do you think is right?  
 
@@ -210,7 +210,7 @@ In the previous example, you ran AUGUSTUS without any helpful information, with 
 
 `bam2hints --intronsonly --in=rnaseq.sorted.filtered.final.bam --out=hints.gff`  
 
-Open the hints file in a text editor and look at the information. It's a simple tabular format specifying the location of an intron. One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this "hint"). The more support a hint has, the stronger it is being considered.  
+Open the hints file in a text editor and look at the information. We have generated hints in GFF format, in this case specifying the location of introns. One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this "hint"). The more support a hint has, the stronger it is being considered.  
 
 **2)** Run AUGUSTUS with the newly generated hints:  
 
