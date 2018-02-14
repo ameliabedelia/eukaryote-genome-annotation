@@ -111,7 +111,11 @@ This file contains gene models from the corresponding genomic region in chicken,
 **5) Uniprot data (fasta):** `uniprot/uniprot_birds.fasta`  
 Uniprot is a popular protein database that includes high-confidence as well as predicted protein sequences from a wide range of organisms. This dataset includes validated protein sequences from chicken, duck and zebra finch. Only protein sequences locating to our genomic region of interest are included to reduce the runtime of the annotation step.  
 
+You should see this: 
+
 ![](images/IGV_start_out.png) 
+
+If you zoom in you can see the RNA-seq reads as well: 
 
 ![](images/IGV_start.png) 
 
