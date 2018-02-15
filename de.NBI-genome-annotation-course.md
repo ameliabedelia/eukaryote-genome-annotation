@@ -78,6 +78,8 @@ https://www.git-tower.com/blog/command-line-cheat-sheet/
 
 And do not hesitate to ask us for help at any time. 
 
+We recommend that you type the commands yourself instead of copy-pasting, as it will then become more clear what you are doing at each step. Remember that you can press the "tab" key to autocomplete file and directory names; also the "up arrow" key will show you the commands that you previously typed. 
+
 For these exercises you will need the **IGV genome browser**. The program can be found in the folder `/mnt/lectures/biol258/Day7/IGV` and you can copy it to your home directory like so:  
 `cp -R /mnt/lectures/biol258/Day07/IGV $HOME`  
 
@@ -165,7 +167,7 @@ In "soft"-masking, repeats are written in lower-case, all other nucleotides uppe
 
 Annotators spend a lot of time just adjusting file formats to follow the rules of different programs. `scaffold.fa.out` has a column format similar to GFF, but not quite the same. We could transform it into GFF format like so: (be careful if you copy and paste, it's a single line of code!)  
 
-`cat scaffold.fa.out | tail -n +4 | perl -ne 'chomp; s/^\s+//; @t = split(/\s+/); print $t[4]."\t"."repmask\trepeat\t".$t[5]."\t".$t[6]."\t0\t.\t.\tclass=".$t[10]."src=RM\n";' > scaffold_repmask.gff` 
+`cat scaffold.fa.out | tail -n +4 | perl -ne 'chomp; s/^\s+//; @t = split(/\s+/); print $t[4]."\t"."repmask\tnonexonpart\t".$t[5]."\t".$t[6]."\t0\t.\t.\tclass=".$t[10].";src=RM\n";' > scaffold_repmask.gff` 
 
 Check in a text editor that `scaffold_repmask.gff` has GFF format (9 columns). 
 
@@ -214,7 +216,7 @@ Open the hints file in a text editor and look at the information. We have genera
 
 **2)** Run AUGUSTUS with the newly generated hints:  
 
-`augustus --species=chicken --extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic.E.cfg --gff3=on --hintsfile=hints_rnaseq.gff scaffold.fa.masked > augustus.with.hints.gff3`  
+`augustus --species=chicken --extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic.E.cfg --gff3=on --hintsfile=hints_rnaseq.gff scaffold.fa.masked > augustus.with.E.hints.gff3`  
 
 Note that this step takes a bit longer than before, as all predictions made by AUGUSTUS are not only ranked by how well they fit the model but also how well they fit the hints. The key here is the `extrinsic.E.cfg` file, which tells AUGUSTUS how to weigh the hints when predicting gene models (i.e. give them a high or low priority).  
 
