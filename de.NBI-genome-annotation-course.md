@@ -292,7 +292,15 @@ This will run the annotation on 4 CPUs (`-c`), and in this case without the very
 Once the program has finished, you can output the annotation using:  
 `gff3_merge -g -d scaffold.maker.output/scaffold_master_datastore_index.log`  
 
-This will only output the finished gene models, not the aligned proteins and transcripts (`-g`). The result file `scaffold.all.gff` can be loaded into IGV. What are your impressions, when you compare the MAKER gene models with your AUGUSTUS results and the chicken lift-over?  
+This will only output the finished gene models, not the aligned proteins and transcripts (`-g`). The result file `scaffold.all.gff` can be loaded into IGV. 
+
+**QB2.19:** Check position 7,460 kbp again. Is the MAKER annotation better than the ab initio prediction from AUGUSTUS?  
+
+**QB2.20:** Check position 6,180 kbp again. Is the MAKER annotation better than the prediction of AUGUSTUS with hints? How can that be when MAKER doesn't use RNA-seq data? 
+
+**QB2.21:** Go to position 1,513 kbp. Which program predicts the first exons better according to the RNA-seq data? Why do you think MAKER is predicting more exons? (there could be different explanations). 
+
+**QB2.22:** If MAKER does not use the direct RNA-seq data, how do you think it can predict UTRs? 
 
 ## B2.6. Functional annotation using BLAST and MAKER  
 
