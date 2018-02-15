@@ -192,7 +192,7 @@ You can load this file into IGV and check what sort of gene models AUGUSTUS pred
 
 *If you have loaded the `scaffold.fa.masked` sequence in the previous section, you will only have the `scaffold_repmask.gff` track. Plase load again the files `Fst.bedgraph`, `rnaseq.bam` and `chicken.gff`.* 
 
-**QB2.6:** Can you find an augustus predicition that is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but Augustus has not predicted them in the way we have run it. Search similar predicitions based only on coding sequence).
+**QB2.6:** Can you find an augustus predicition that is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but AUGUSTUS has not predicted them in the way we have run it. Search similar predictions based only on coding sequence).  
 
 **QB2.7:** Go to position 7,460 kbp. Augustus has predicted gene g149 as a merge of the chicken genes ENSGALT00000001245 and ENSGALT00000001289. Based on the RNA-seq evidence, which gene structure do you think is right?  
 
@@ -231,11 +231,15 @@ You can now compare the lift-over chicken annotation with your initial AUGUSTUS 
 
 **QB2.11:** Can you find another augustus prediction that has been improved by the use of RNA-seq hints? Write its name ("gXX"). 
 
-**QB2.12:** Go to position 6,076 kbp. Augustus has predicted gene g102/g108 as a merge of the chicken genes ENSGALT00000045099 and ENSGALT00000009974. Do you see something that could explain why Augustus predicts an additional exon in this position? 
+**QB2.12:** Go to position 7,587,940 bp and zoom-in to the nucleotide level. AUGUSTUS has predicted a 3'-end of this exon different from the chicken lift-over evidence. Which one do you think is correct? (Remember that the canonical splice donor and acceptor sites are GU and AG, respectively). 
 
-**QB2.13:** Go to position 5,394 kbp. Augustus has predicted a short single exon gene here (g80/g84). Would you trust this prediction? Why? 
+![](images/IGV_donor.png) 
 
-## B2.5. Re-run AUGUSTUS with "hints" from RepeatMasker 
+**QB2.13:** Go to position 6,076 kbp. AUGUSTUS has predicted gene g102/g108 as a merge of the chicken genes ENSGALT00000045099 and ENSGALT00000009974. Do you see something that could explain why AUGUSTUS predicts an additional exon in this position? 
+
+**QB2.14:** Go to position 5,394 kbp. AUGUSTUS has predicted a short single exon gene here (g80/g84). Would you trust this prediction? Why? 
+
+## B2.5. Re-run AUGUSTUS with hints from RepeatMasker 
 
 Even though we are using a masked scaffold, since it is only "soft"-masked, AUGUSTUS can still predict exons spanning repeats. To avoid this, we can use the repeats as "negative" hints: we will introduce a penalty every time that a repeat appears in the sequence, so that AUGUSTUS is less likely to predict an exon there. (It can still predict them if necessary, that is why "soft"-masking is better than converting the bases into "N"s). 
 
@@ -249,23 +253,15 @@ Now we can run AUGUSTUS again. Note that we use a different config file `extrins
 
 `augustus --species=chicken --extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic.M.RM.E.W.cfg --gff3=on --hintsfile=hints_rnaseq_repmask.gff scaffold.fa.masked > augustus.with.E.RM.hints.gff3` 
 
-Load the file `augustus.with.E.RM.hints.gff3` in IGV. 
+Load the file `augustus.with.E.RM.hints.gff3` into IGV. 
 
-**QB2.14:** Check position 5,394 kbp again. Is the gene predicted when we use negative hints from RepeatMasker? 
+**QB2.15:** Check position 5,394 kbp again. Is the gene predicted when we use negative hints from RepeatMasker? 
 
-**QB2.15:** Check position 6,076 kbp again. Has the gene prediction changed in this position? Why do you think that is? 
+**QB2.16:** Check position 6,076 kbp again. Has the gene prediction changed in this position? Why do you think that is? 
 
-**QB2.16:** Can you think of ways to make the annotation even better? What other types of hints can you think of and do you think that a computational prediction is sufficient for a high-quality gene build? 
+**QB2.17:** Can you think of ways to make the annotation even better? What other types of hints can you think of and do you think that a computational prediction is sufficient for a high-quality gene build? 
 
-**QB2.17:** How are they doing the annotation for human? (hint: google "Sanger Vertebrate Annotation")  
-
-##################################################
-## Optional exercise 
-
-If you have extra time after finishing the rest of the exercises, you can try to incorporate the chicken lift-over GFF file as hints. You will need to modify `chicken.gff` to incorporate the tag "src=P"
-
-
-##################################################
+**QB2.18:** How are they doing the annotation for human? (hint: google "Sanger Vertebrate Annotation")  
 
 ## B2.6. Automatic annotation with MAKER  
 
