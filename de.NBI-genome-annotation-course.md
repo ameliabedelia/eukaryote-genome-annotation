@@ -190,11 +190,13 @@ This will start AUGUSTUS, using chicken as profile (`--species`) and write the o
 
 You can load this file into IGV and check what sort of gene models AUGUSTUS predicted for scaffold28. To judge the quality of the models, you can visually compare them in IGV to the chicken lift-over gene structures.  
 
-*If you have loaded the `scaffold.fa.masked` sequence in the previous section, you will only have the `scaffold_repmask.gff` track. Plase load again the files `Fst.bedgraph`, `rnaseq.bam`and `chicken.gff`.* 
+*If you have loaded the `scaffold.fa.masked` sequence in the previous section, you will only have the `scaffold_repmask.gff` track. Plase load again the files `Fst.bedgraph`, `rnaseq.bam` and `chicken.gff`.* 
 
-**QB2.6:** Can you find an augustus predicition which is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but Augustus has not predicted them in the way we have run it. Search similar predicitions based only on coding sequence).
+**QB2.6:** Can you find an augustus predicition that is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but Augustus has not predicted them in the way we have run it. Search similar predicitions based only on coding sequence).
 
 **QB2.7:** Go to position 7,460 kbp. Augustus has predicted gene g149 as a merge of the chicken genes ENSGALT00000001245 and ENSGALT00000001289. Based on the RNA-seq evidence, which one do you think is right?  
+
+**QB2.8:** Go to position 6,180 kbp. Augustus has predicted gene g112 as a merge of the chicken genes ENSGALT00000000717 and ENSGALT00000000179. Based on the RNA-seq evidence, which one do you think is right? 
 
 ## B2.4. Re-run AUGUSTUS with "hints" from RNA-seq experiments  
 
@@ -210,7 +212,8 @@ In the previous example, you ran AUGUSTUS without any helpful information, with 
 
 `bam2hints --intronsonly --in=rnaseq.sorted.filtered.final.bam --out=hints_rnaseq.gff`  
 
-Open the hints file in a text editor and look at the information. We have generated hints in GFF format, in this case specifying the location of introns. One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this "hint"). The more support a hint has, the stronger it is being considered.  
+Open the hints file in a text editor and look at the information. We have generated hints in GFF format, in this case specifying the location of introns. See that the third column is "intron" for every row, because these are "only" hints. In contrast, GFF files that report gene annotations (like the output of augustus) must contain a combination of "gene", "mRNA", "exon", "CDS" and "intron" features. 
+One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this hint). The more support a hint has, the stronger it is being considered.  
 
 **2)** Run AUGUSTUS with the newly generated hints:  
 
@@ -222,9 +225,47 @@ Note that this step takes a bit longer than before, as all predictions made by A
 
 You can now compare the lift-over chicken annotation with your initial AUGUSTUS predictions and the predictions guided by intron hints. Has the addition of intron hints improved the gene prediction? Can you think of ways to make the annotation even better? What other types of hints can you think of and do you think that a computational prediction is sufficient for a high-quality gene build?  
 
+**QB2.9:** Check position 7,460 kbp again. Has the use of RNA-seq hints improved the annotation? 
+
+**QB2.10:** Check position 6,180 kbp again. Has the use of RNA-seq hints improved the annotation? 
+
+**QB2.11:** Can you find another augustus prediction that has been improved by the use of RNA-seq hints? Write its name ("gXX"). 
+
+**QB2.12:** Go to position 6,076 kbp. Augustus has predicted gene g102/g108 as a merge of the chicken genes ENSGALT00000045099 and ENSGALT00000009974. Do you see something that could explain why Augustus predicts an additional exon in this position? 
+
+**QB2.13:** Go to position 5,394 kbp. Augustus has predicted a short single exon gene here (g80/g84). Would you trust this prediction? Why? 
+
+## B2.5. Re-run AUGUSTUS with "hints" from RepeatMasker 
+
+Even though we are using a masked scaffold, since it is only "soft"-masked, AUGUSTUS can still predict exons spanning repeats. To avoid this, we can use the repeats as "negative" hints: we will introduce a penalty every time that a repeat appears in the sequence, so that AUGUSTUS is less likely to predict an exon there. (It can still predict them if necessary, that is why "soft"-masking is better than converting the bases into "N"s). 
+
+AUGUSTUS only accepts one file with hints, therefore we will concatenate the GFF file from RNA-seq data (`hints_rnaseq.gff`) and the GFF file from RepeatMasker (`scaffold_repmask.gff`). 
+
+To differentiate each kind of hints, the last column of the GFF contains the tag "src=". Open the GFF files in a text editor to check that the hints from RNA-seq have "src=E" and that the hints from RepeatMasker have "src=RM". Now we concatenate the two files in a single new file: 
+
+`cat hints_rnaseq.gff scaffold_repmask.gff >> hints_rnaseq_repmask.gff` 
+
+Now we can run AUGUSTUS again. Note that we use a different config file `extrinsic.M.RM.E.W.cfg`, which incorporates the penalty for "src=RM". 
+
+`augustus --species=chicken --extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic.M.RM.E.W.cfg --gff3=on --hintsfile=hints_rnaseq_repmask.gff scaffold.fa.masked > augustus.with.E.RM.hints.gff3` 
+
+Load the file `augustus.with.E.RM.hints.gff3` in IGV. 
+
+**QB2.14:** Check position 5,394 kbp again. Is the gene predicted when we use negative hints from RepeatMasker? 
+
+**QB2.15:** Check position 6,076 kbp again. Has the gene prediction changed in this position? Why do you think that is? 
+
 **QB2.3:** How are they doing the annotation for human? (hint: google "Sanger Vertebrate Annotation")  
 
-## B2.5. Automatic annotation with MAKER  
+##################################################
+## Optional exercise 
+
+If you have extra time after finishing the rest of the exercises, you can try to incorporate the chicken lift-over GFF file as hints. You will need to modify `chicken.gff` to incorporate the tag "src=P"
+
+
+##################################################
+
+## B2.6. Automatic annotation with MAKER  
 
 Annotation of eukaryote genomes can be largely automated. One popular solution for this is the **MAKER** package, which uses a variety of tools to generate gene models: combining repeat masking, protein and transcript alignments as well as gene predictions (using e.g. AUGUSTUS and/or others). MAKER is able to produce reasonable results, especially for species with plenty of supporting evidence from protein sequences. However, it has some flaws (for example not being able to use raw RNA-seq data) and the resulting annotation should always be inspected manually and curated, if necessary.  
 
