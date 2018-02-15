@@ -274,7 +274,7 @@ These files are read by MAKER to determine where to find e.g. different software
 
 `genome=scaffold.fa #genome sequence (fasta file or fasta embeded in GFF3 file)`  
 
-`est=transcript.fasta #set of ESTs or assembled mRNA-seq in fasta format`  
+`est=transcripts.fasta #set of ESTs or assembled mRNA-seq in fasta format`  
 You get this file from the exercise folder `transcripts`.  
 
 `protein=uniprot.fasta #protein sequence file in fasta format (i.e. from multiple organisms)`  
@@ -283,8 +283,6 @@ You get this file from the exercise folder `uniprot`.
 `model_org=chicken #select a model organism for the RepBase masking in RepeatMasker`  
 
 `augustus_species=chicken #Augustus gene prediction species model`  
-
-![](images/maker_ctl.png)
 
 Once all the information is there, MAKER should be able to annotate the scaffold:  
 `maker -c 4 -R`  
