@@ -159,7 +159,7 @@ In "soft"-masking, repeats are written in lower-case, all other nucleotides uppe
 
 **QB2.2:** How many of those are "LINE" elements?  
 
-**QB2.3:** Look at the first lines of the repeat-masked genome (type, for example, `head scaffold.fa.masked` to see the first 10 lines), have any of the first nucleotides been masked? 
+**QB2.3:** Look at the first lines of the repeat-masked genome (type `head scaffold.fa.masked` to see the first 10 lines), have any of the first nucleotides been masked? 
 
 **QB2.4:** What is the position of the first repeat? (type, for example, `head scaffold.fa.out`). 
 
