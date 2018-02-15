@@ -270,7 +270,7 @@ Annotation of eukaryote genomes can be largely automated. One popular solution f
 To run MAKER on a single computer, you first need to generate the necessary control files:  
 `maker -CTL`  
 
-These files are read by MAKER to determine where to find e.g. different software tools and what settings to use. For you, the most important file is `maker_opts.ctl`. Open it with the text editor of your choice to fill out some information (you can find the files for this in the project folder):  
+These files are read by MAKER to determine where to find e.g. different software tools and what settings to use. For you, the most important file is `maker_opts.ctl`. Open it with the text editor of your choice to fill out some information (you can find the files for this in the project folder; make sure you write the full path to each file):  
 
 `genome=scaffold.fa #genome sequence (fasta file or fasta embeded in GFF3 file)`  
 
@@ -283,6 +283,8 @@ You get this file from the exercise folder `uniprot`.
 `model_org=chicken #select a model organism for the RepBase masking in RepeatMasker`  
 
 `augustus_species=chicken #Augustus gene prediction species model`  
+
+![](images/maker_ctl.png)
 
 Once all the information is there, MAKER should be able to annotate the scaffold:  
 `maker -c 4 -R`  
