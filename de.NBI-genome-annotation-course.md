@@ -214,7 +214,7 @@ Open the hints file in a text editor and look at the information. We have genera
 
 **2)** Run AUGUSTUS with the newly generated hints:  
 
-`augustus --species=chicken extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic/extrinsic.E.cfg --gff3=on --hintsfile=hints.gff scaffold.fa.masked > augustus.with.hints.gff3`  
+`augustus --species=chicken --extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic/extrinsic.E.cfg --gff3=on --hintsfile=hints.gff scaffold.fa.masked > augustus.with.hints.gff3`  
 
 Note that this step takes a bit longer than before, as all predictions made by AUGUSTUS are not only ranked by how well they fit the model but also how well they fit the hints. The key here is the `extrinsic.E.cfg` file, which tells AUGUSTUS how to weigh the hints when predicting gene models (i.e. give them a high or low priority).  
 
