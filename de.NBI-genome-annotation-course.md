@@ -194,13 +194,13 @@ You can load this file into IGV and check what sort of gene models AUGUSTUS pred
 
 **QB2.6:** Can you find an augustus predicition that is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but Augustus has not predicted them in the way we have run it. Search similar predicitions based only on coding sequence).
 
-**QB2.7:** Go to position 7,460 kbp. Augustus has predicted gene g149 as a merge of the chicken genes ENSGALT00000001245 and ENSGALT00000001289. Based on the RNA-seq evidence, which one do you think is right?  
+**QB2.7:** Go to position 7,460 kbp. Augustus has predicted gene g149 as a merge of the chicken genes ENSGALT00000001245 and ENSGALT00000001289. Based on the RNA-seq evidence, which gene structure do you think is right?  
 
-**QB2.8:** Go to position 6,180 kbp. Augustus has predicted gene g112 as a merge of the chicken genes ENSGALT00000000717 and ENSGALT00000000179. Based on the RNA-seq evidence, which one do you think is right? 
+**QB2.8:** Go to position 6,180 kbp. Augustus has predicted gene g112 as a merge of the chicken genes ENSGALT00000000717 and ENSGALT00000000179. Based on the RNA-seq evidence, which gene structure do you think is right? 
 
 ## B2.4. Re-run AUGUSTUS with "hints" from RNA-seq experiments  
 
-In the previous example, you ran AUGUSTUS without any helpful information, with decent (?) results. However, as you will learn with the course, there is a very good source of information for the presence of introns and exons in a genome sequence: RNA-seq data. As RNA-seq is a snapshot of what is transcribed from a genome, it would be useful to tell AUGUSTUS where there should be an intron or an exon instead of having it guess it. This is called "providing hints". So, let's generate hints and run AUGUSTUS again.  
+In the previous example, you ran AUGUSTUS *ab initio*, without any external evidence. However, as you will learn with the course, there is a very good source of information for the presence of introns and exons in a genome sequence: RNA-seq data. As RNA-seq is a snapshot of what is transcribed from a genome, it would be useful to tell AUGUSTUS where there should be an intron or an exon instead of having it guess it. This is called "providing hints". So, let's generate hints and run AUGUSTUS again.  
 
 **1)** Convert the RNA-seq BAM file into hints for AUGUSTUS (fill in file names as appropiate):  
 
