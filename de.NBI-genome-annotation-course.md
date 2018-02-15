@@ -223,7 +223,7 @@ Note that this step takes a bit longer than before, as all predictions made by A
 
 **3)** Load the hint-supported gene models into IGV:  
 
-You can now compare the lift-over chicken annotation with your initial AUGUSTUS predictions and the predictions guided by intron hints. Has the addition of intron hints improved the gene prediction? Can you think of ways to make the annotation even better? What other types of hints can you think of and do you think that a computational prediction is sufficient for a high-quality gene build?  
+You can now compare the lift-over chicken annotation with your initial AUGUSTUS predictions and the predictions guided by intron hints. Has the addition of intron hints improved the gene prediction?  
 
 **QB2.9:** Check position 7,460 kbp again. Has the use of RNA-seq hints improved the annotation? 
 
@@ -255,7 +255,9 @@ Load the file `augustus.with.E.RM.hints.gff3` in IGV.
 
 **QB2.15:** Check position 6,076 kbp again. Has the gene prediction changed in this position? Why do you think that is? 
 
-**QB2.3:** How are they doing the annotation for human? (hint: google "Sanger Vertebrate Annotation")  
+**QB2.16:** Can you think of ways to make the annotation even better? What other types of hints can you think of and do you think that a computational prediction is sufficient for a high-quality gene build? 
+
+**QB2.17:** How are they doing the annotation for human? (hint: google "Sanger Vertebrate Annotation")  
 
 ##################################################
 ## Optional exercise 
