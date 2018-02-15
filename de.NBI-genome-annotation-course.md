@@ -76,9 +76,7 @@ https://learncodethehardway.org/unix/bash_cheat_sheet.pdf
 
 https://www.git-tower.com/blog/command-line-cheat-sheet/ 
 
-And do not hesitate to ask us for help at any time. 
-
-We recommend that you type the commands yourself instead of copy-pasting, as it will then become more clear what you are doing at each step. Remember that you can press the "tab" key to autocomplete file and directory names; also the "up arrow" key will show you the commands that you previously typed. 
+*We recommend that you type the commands yourself instead of copy-pasting, as it will then become more clear what you are doing at each step. Remember that you can press the "tab" key to autocomplete file and directory names; also the "up arrow" key will show you the commands that you previously typed.* 
 
 For these exercises you will need the **IGV genome browser**. The program can be found in the folder `/mnt/lectures/biol258/Day7/IGV` and you can copy it to your home directory like so:  
 `cp -R /mnt/lectures/biol258/Day07/IGV $HOME`  
