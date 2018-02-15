@@ -165,7 +165,7 @@ In "soft"-masking, repeats are written in lower-case, all other nucleotides uppe
 
 Annotators spend a lot of time just adjusting file formats to follow the rules of different programs. `scaffold.fa.out` has a column format similar to GFF, but not quite the same. We could transform it into GFF format like so: (be careful if you copy and paste, it's a single line of code!)  
 
-`cat scaffold.fa.out | tail -n +4 | perl -ne 'chomp; s/^\s+//; @t = split(/\s+/); print $t[4]."\t"."repmask\trepeat\t".$t[5]."\t".$t[6]."\t0\t.\t.\tclass=".$t[10]."\n";' > scaffold_repmask.gff` 
+`cat scaffold.fa.out | tail -n +4 | perl -ne 'chomp; s/^\s+//; @t = split(/\s+/); print $t[4]."\t"."repmask\trepeat\t".$t[5]."\t".$t[6]."\t0\t.\t.\tclass=".$t[10]."src=RM\n";' > scaffold_repmask.gff` 
 
 Check in a text editor that `scaffold_repmask.gff` has GFF format (9 columns). 
 
@@ -194,7 +194,7 @@ You can load this file into IGV and check what sort of gene models AUGUSTUS pred
 
 **QB2.6:** Can you find an augustus predicition which is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but Augustus has not predicted them in the way we have run it. Search similar predicitions based only on coding sequence).
 
-**QB2.7:** Go to position 6,180 kbp. Augustus has predicted gene g112 as a merge of the chicken genes ENSGALT00000000717 and ENSGALT00000000179. Based on the RNA-seq evidence, which one do you think is right?  
+**QB2.7:** Go to position 7,460 kbp. Augustus has predicted gene g149 as a merge of the chicken genes ENSGALT00000001245 and ENSGALT00000001289. Based on the RNA-seq evidence, which one do you think is right?  
 
 ## B2.4. Re-run AUGUSTUS with "hints" from RNA-seq experiments  
 
@@ -208,13 +208,13 @@ In the previous example, you ran AUGUSTUS without any helpful information, with 
 
 `samtools sort rnaseq.sorted.filtered.bam > rnaseq.sorted.filtered.final.bam`  
 
-`bam2hints --intronsonly --in=rnaseq.sorted.filtered.final.bam --out=hints.gff`  
+`bam2hints --intronsonly --in=rnaseq.sorted.filtered.final.bam --out=hints_rnaseq.gff`  
 
 Open the hints file in a text editor and look at the information. We have generated hints in GFF format, in this case specifying the location of introns. One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this "hint"). The more support a hint has, the stronger it is being considered.  
 
 **2)** Run AUGUSTUS with the newly generated hints:  
 
-`augustus --species=chicken --extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic.E.cfg --gff3=on --hintsfile=hints.gff scaffold.fa.masked > augustus.with.hints.gff3`  
+`augustus --species=chicken --extrinsicCfgFile=$AUGUSTUS_CONFIG_PATH/extrinsic.E.cfg --gff3=on --hintsfile=hints_rnaseq.gff scaffold.fa.masked > augustus.with.hints.gff3`  
 
 Note that this step takes a bit longer than before, as all predictions made by AUGUSTUS are not only ranked by how well they fit the model but also how well they fit the hints. The key here is the `extrinsic.E.cfg` file, which tells AUGUSTUS how to weigh the hints when predicting gene models (i.e. give them a high or low priority).  
 
