@@ -202,11 +202,11 @@ In the previous example, you ran AUGUSTUS without any helpful information, with 
 
 **1)** Convert the RNA-seq BAM file into hints for AUGUSTUS (fill in file names as appropiate):  
 
-`samtools sort -n rnaseq.bam rnaseq.sorted`  
+`samtools sort -n rnaseq.bam > rnaseq.sorted.bam`  
 
 `filterBam --uniq --in rnaseq.sorted.bam --out rnaseq.sorted.filtered.bam`  
 
-`samtools sort rnaseq.sorted.filtered.bam rnaseq.sorted.filtered.final`  
+`samtools sort rnaseq.sorted.filtered.bam > rnaseq.sorted.filtered.final.bam`  
 
 `bam2hints --intronsonly --in=rnaseq.sorted.filtered.final.bam --out=hints.gff`  
 
