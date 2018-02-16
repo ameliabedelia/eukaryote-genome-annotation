@@ -297,7 +297,7 @@ This will only output the finished gene models, not the aligned proteins and tra
 
 **QB2.19:** Check position 7,460 kbp again. Is the MAKER annotation better than the ab initio prediction from AUGUSTUS?  
 
-**QB2.20:** Check position 6,180 kbp again. Is the MAKER annotation better than the prediction of AUGUSTUS with hints? How can that be when MAKER doesn't use RNA-seq data? 
+**QB2.20:** Check position 6,180 kbp again. Is the MAKER annotation better than the prediction of AUGUSTUS with hints? How can that be when MAKER doesn't use raw RNA-seq data? 
 
 **QB2.21:** Go to position 7,170 kbp. In your opinion, which program has made a more accurate predicition in this locus, MAKER (split into two genes) or AUGUSTUS (one gene)? 
 
