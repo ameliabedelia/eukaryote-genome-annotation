@@ -119,6 +119,7 @@ If you zoom in you can see the RNA-seq reads as well:
 
 ![](images/IGV_start.png) 
 
+On the panel on the left side, you can right-click a track to rename it, change its color or expand/colapse it. 
 
 ### Software containers  
 Many of the tools used in this exercise are pretty complex to install. In order to avoid having to install them on each computer we are going to use software *containers*. These are *portable* environments in which you can install an operating system, a program or many programs and then copy the whole thing to whichever computer you like to run the software. Popular solutions are Docker and **Singularity** (which we will use here). The way to run a tool inside a container is pretty straight-forward:  
