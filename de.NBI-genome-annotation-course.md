@@ -287,7 +287,7 @@ You get this file from the exercise folder `uniprot`.
 Once all the information is there, MAKER should be able to annotate the scaffold:  
 `maker -c 4 -R`  
 
-This will run the annotation on 4 CPUs (`-c`), and in this case without the very time-consuming repeat-masking step (`-R`) (for an actual annotation project, you should of course NOT skip repeat-masking). MAKER still takes some time to run, so you can either take a coffee break, work on the questions in section B1 or start researching details for question QB2.5 (see below).  
+This will run the annotation on 4 CPUs (`-c`), and in this case without the very time-consuming repeat-masking step (`-R`) (for an actual annotation project, you should of course NOT skip repeat-masking). MAKER still takes some time to run, so you can either take a coffee break, work on the questions in section B1 or start researching details for question QB2.27 (see below).  
 
 Once the program has finished, you can output the annotation using:  
 `gff3_merge -g -d scaffold.maker.output/scaffold_master_datastore_index.log`  
@@ -298,11 +298,13 @@ This will only output the finished gene models, not the aligned proteins and tra
 
 **QB2.20:** Check position 6,180 kbp again. Is the MAKER annotation better than the prediction of AUGUSTUS with hints? How can that be when MAKER doesn't use RNA-seq data? 
 
-**QB2.21:** Go to position 1,513 kbp. Which program predicts the first exons better according to the RNA-seq data? Why do you think MAKER is predicting more exons? (there could be different explanations). 
+**QB2.21:** Go to position 7,170 kbp. In your opinion, which program has made a more accurate predicition in this locus, MAKER (split into two genes) or AUGUSTUS (one gene)? 
 
-**QB2.22:** If MAKER does not use the direct RNA-seq data, how do you think it can predict UTRs? 
+**QB2.22:** Go to position 1,513 kbp. Which program predicts the first exons better according to the RNA-seq data? Why do you think MAKER is predicting more exons? (there could be different explanations). 
 
-## B2.6. Functional annotation using BLAST and MAKER  
+**QB2.23:** If MAKER does not use the direct RNA-seq data, how do you think it can predict UTRs? 
+
+## B2.7. Functional annotation using BLAST and MAKER  
 
 Now that you have a first structural annotation, you next have to figure out what the genes you just annotated actually do. Based on that, you can start thinking about explanations for the male morphs in the ruff. A common way to functionally annotate genes is by similarity to genes that we already know the function of. A good source for this is the Uniprot database. We will simply use **BLAST** to match the predicted proteins from the ruff scaffold to this database and take the best hit as the most likely function. Please keep in mind that this is only a prediction and will not work well if your genome of interest is phylogenetically distant to other species with a functionally characterized proteome. Since we work with a bird and chicken is well studied, this should not be a big problem in our case.  
 
@@ -320,14 +322,18 @@ The options `-query` and `-db` specify which file we want to blast against which
 MAKER can parse the BLAST output and add the information to the annotation file:  
 `maker_functional_gff uniprot.fasta blast.out scaffold.all.gff > scaffold.all.functions.gff`  
 
-When you load the resulting file into IGV, you should now get a description about the function of the genes.  
+Load this file into IGV. When you put your cursor on a gene model, you should see the gene name under the "Note" label. 
 
-## B2.7. Putting it all together  
+**QB2.24:** To which protein is the first gene in the scaffold most similar to? From which species? 
+
+**QB2.25:** Check position 7,170 kbp again. MAKER has predicted two genes in this locus. To which protein is each of them most similar to? Would you trust this function assignment based on the RNA-seq data from the ruff?  
+
+## B2.8. Putting it all together  
 
 Check your annotated gene models within the region(s) identified by the Fst data to be in conflict between the "Independent" and "Satellite" phenotypes. Of special interest are the break points, i.e. the start and the end of the highlighted region.  
 
-**QB2.4:** Are genes overlapping these boundaries and what do they do?  (Hint: important gene to consider is CENPN)  
+**QB2.26:** Are genes overlapping these boundaries and what do they do?  (Hint: important gene to consider is CENPN)  
 
-**QB2.5:** Are there any other genes within the target region that could perhaps explain male morphological and behavioral changes? (Hint: important genes to consider are HSD17B2, SDR42E1 and MC1R; check where these are in your annotation and see if you can find functional information using, e.g. the Uniprot database or the EnsEMBL website)  
+**QB2.27:** Are there any other genes within the target region that could perhaps explain male morphological and behavioral changes? (Hint: important genes to consider are HSD17B2, SDR42E1 and MC1R; check where these are in your annotation and see if you can find functional information using, e.g. the Uniprot database or the EnsEMBL website)  
 
-**QB2.6:** CENPN is a heterozygous loss of function mutation in "Satellites" and "Feader" males. Can you think of how this relates to the lower frequency of the "Feader" and "Satellite" morphs? 
+**QB2.28:** CENPN is a heterozygous loss of function mutation in "Satellites" and "Feader" males. Can you think of how this relates to the lower frequency of the "Feader" and "Satellite" morphs? 
