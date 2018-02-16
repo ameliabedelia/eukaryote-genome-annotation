@@ -230,7 +230,7 @@ You can now compare the lift-over chicken annotation with your initial AUGUSTUS 
 
 **QB2.10:** Check position 6,180 kbp again. Has the use of RNA-seq hints improved the annotation? Zoom-in to the nucleotide level at position 6,178,780 bp. Can you see any problematic sequence that could difficult the prediction of gene structure? 
 
-**QB2.11:** Can you find another augustus prediction that has been improved by the use of RNA-seq hints? Write its name ("gXX"). 
+**QB2.11:** Can you find another AUGUSTUS prediction that has been improved by the use of RNA-seq hints? Write its name ("gXX"). 
 
 **QB2.12:** Go to position 7,587,940 bp and zoom-in to the nucleotide level. AUGUSTUS has predicted a 3'-end of this exon different from the chicken lift-over evidence. Which one do you think is correct? (Remember that the canonical splice donor and acceptor sites are GU and AG, respectively). 
 
