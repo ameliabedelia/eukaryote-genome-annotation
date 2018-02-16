@@ -193,7 +193,7 @@ You can load this file into IGV and check what sort of gene models AUGUSTUS pred
 
 *If you have loaded the `scaffold.fa.masked` sequence in the previous section, you will only have the `scaffold_repmask.gff` track. Plase load again the files `Fst.bedgraph`, `rnaseq.bam` and `chicken.gff`.* 
 
-**QB2.6:** Can you find an augustus predicition that is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but AUGUSTUS has not predicted them in the way we have run it. Search similar predictions based only on coding sequence).  
+**QB2.6:** Can you find an augustus prediction that is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but AUGUSTUS has not predicted them in the way we have run it. Search similar predictions based only on coding sequence).  
 
 **QB2.7:** Go to position 7,460 kbp. Augustus has predicted gene g149 as a merge of the chicken genes ENSGALT00000001245 and ENSGALT00000001289. Based on the RNA-seq evidence, which gene structure do you think is right?  
 
@@ -213,7 +213,7 @@ In the previous example, you ran AUGUSTUS *ab initio*, without any external evid
 
 `bam2hints --intronsonly --in=rnaseq.sorted.filtered.final.bam --out=hints_rnaseq.gff`  
 
-Open the hints file in a text editor and look at the information. We have generated hints in GFF format, in this case specifying the location of introns. See that the third column is "intron" for every row, because these are "only" hints. In contrast, GFF files that report gene annotations (like the output of augustus) must contain a combination of "gene", "mRNA", "exon", "CDS" and "intron" features. 
+Open the hints file in a text editor and look at the information. We have generated hints in GFF format, in this case specifying the location of introns. See that the third column is "intron" for every row, because these are "only" hints. In contrast, GFF files that report gene annotations (like the output of AUGUSTUS) must contain a combination of "gene", "mRNA", "exon", "CDS" and "intron" features. 
 One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this hint). The more support a hint has, the stronger it is being considered.  
 
 **2)** Run AUGUSTUS with the newly generated hints:  
@@ -228,7 +228,7 @@ You can now compare the lift-over chicken annotation with your initial AUGUSTUS 
 
 **QB2.9:** Check position 7,460 kbp again. Has the use of RNA-seq hints improved the annotation? 
 
-**QB2.10:** Check position 6,180 kbp again. Has the use of RNA-seq hints improved the annotation? 
+**QB2.10:** Check position 6,180 kbp again. Has the use of RNA-seq hints improved the annotation? Zoom-in to the nucleotide level at position 6,178,780 bp. Can you see any problematic sequence that could difficult the prediction of gene structure? 
 
 **QB2.11:** Can you find another augustus prediction that has been improved by the use of RNA-seq hints? Write its name ("gXX"). 
 
