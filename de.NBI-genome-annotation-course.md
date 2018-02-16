@@ -170,7 +170,7 @@ Annotators spend a lot of time just adjusting file formats to follow the rules o
 
 Check in a text editor that `scaffold_repmask.gff` has GFF format (9 columns). 
 
-Load the masked genome `scaffold.fa.masked` ("Genomes" --> "Load from file") and the annotated repeats `scaffold_repmask.gff` ("File" --> "Load from file") in IGV. Zoom-in until you can see the nucleotides. 
+Load the masked genome `scaffold.fa.masked` ("Genomes" --> "Load from file") and the annotated repeats `scaffold_repmask.gff` ("File" --> "Load from file") into IGV. Zoom-in until you can see the nucleotides. 
 
 **QB2.5:** Can you find an example of a soft-masked sequence based on the annotated repeats? Write its coordinates.  
 
