@@ -217,6 +217,7 @@ In the previous example, you ran AUGUSTUS *ab initio*, without any external evid
 `bam2hints --intronsonly --in=rnaseq.sorted.filtered.final.bam --out=hints_rnaseq.gff`  
 
 Open the hints file in a text editor and look at the information. We have generated hints in GFF format, in this case specifying the location of introns. See that the third column is "intron" for every row, because these are "only" hints. In contrast, GFF files that report gene annotations (like the output of AUGUSTUS) must contain a combination of "gene", "mRNA", "exon", "CDS" and "intron" features. 
+
 One interesting bit is the key-value pair "multi", as it tells AUGUSTUS how well supported this particular hint is (i.e. how many reads in the RNA-seq alignment cover this hint). The more support a hint has, the stronger it is being considered.  
 
 **2)** Run AUGUSTUS with the newly generated hints:  
