@@ -188,9 +188,9 @@ Gene finders may either use generic "profiles" to predict genes, or specifically
 **AUGUSTUS** is a gene prediction tool that uses HMMs (optionally combined with "evidence" data from sequence alignments) to find gene models in a genome sequence. For the ruff, we can use the chicken profile models. Birds have fairly well-conserved gene structures and sequences. As sequence, use the repeat-masked scaffold you generated in the previous section (`scaffold.fa.masked`).  
 
 To execute AUGUSTUS type:  
-`augustus --species=chicken --gff3=on scaffold.fa.masked > augustus.gff3`  
+`augustus --species=chicken --gff3=on scaffold.fa.masked > augustus.abinitio.gff3`  
 
-This will start AUGUSTUS, using chicken as profile (`--species`) and write the output in GFF3 format (which is the standard for annotations). The output file will be called `augustus.gff3`.  
+This will start AUGUSTUS, using chicken as profile (`--species`) and write the output in GFF3 format (which is the standard for annotations). The output file will be called `augustus.abinitio.gff3`.  
 
 You can load this file into IGV and check what sort of gene models AUGUSTUS predicted for scaffold28. To judge the quality of the models, you can visually compare them in IGV to the chicken lift-over gene structures.  
 
