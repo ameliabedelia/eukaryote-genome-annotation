@@ -150,7 +150,7 @@ Identifying repetitive motifs in an eukaryotic genome sequence is important prio
 To repeat-mask scaffold28, you can run RepeatMasker like so:  
 `RepeatMasker -pa 4 -qq -species aves -xsmall scaffold.fa`  
 
-This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold ("soft"-masked because we specified `-xsmall`). In addition, we are using the `-qq` flag to speed up the process (at the cost of sensitivity). The following output files will be created:  
+This will invoke RepeatMasker, using 4 CPUs (`-pa`), the bird reference repeat sequences (`-species`) and output a repeat-masked version of the scaffold ("soft"-masked because we specified `-xsmall`). In addition, we are using the `-qq` flag to speed up the process (at the cost of sensitivity). The following output files will be created (in the directory where the genome file is):  
 
 `scaffold.fa.masked`: the "soft"-masked genome sequence. 
 In "soft"-masking, repeats are written in lower-case, all other nucleotides upper-case. In contrast, in "hard"-masking repeats are replaced by "N"s.  
