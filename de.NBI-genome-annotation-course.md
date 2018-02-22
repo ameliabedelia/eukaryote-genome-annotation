@@ -165,7 +165,7 @@ In "soft"-masking, repeats are written in lower-case, all other nucleotides uppe
 
 **QB2.3:** Look at the first lines of the repeat-masked genome (type `head scaffold.fa.masked` to see the first 10 lines), have any of the first nucleotides been masked? 
 
-**QB2.4:** What is the position of the first repeat? (type `head scaffold.fa.out`) 
+**QB2.4:** What is the position of the first repeat?  
 
 Annotators spend a lot of time just adjusting file formats to follow the rules of different programs. `scaffold.fa.out` has a column format similar to GFF, but not quite the same. We could transform it into GFF format like so: (be careful if you copy and paste, it's a single line of code!)  
 
