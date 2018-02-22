@@ -159,9 +159,9 @@ In "soft"-masking, repeats are written in lower-case, all other nucleotides uppe
 
 `scaffold.fa.tbl`: a summary of the repeat annotation.  
 
-**QB2.1:** How many repeats were annotated in scaffold28? (check `scaffold.fa.out`)  
+**QB2.1:** How many repeats were annotated in scaffold28? (use the command `wc -l` to check the number of lines of the file `scaffold.fa.out`)  
 
-**QB2.2:** How many of those are "LINE" elements?  
+**QB2.2:** How many of those are "LINE" elements? (check `scaffold.fa.tbl`)  
 
 **QB2.3:** Look at the first lines of the repeat-masked genome (type `head scaffold.fa.masked` to see the first 10 lines), have any of the first nucleotides been masked? 
 
