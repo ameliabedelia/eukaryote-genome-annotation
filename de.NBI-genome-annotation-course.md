@@ -294,6 +294,8 @@ Once all the information is there, MAKER should be able to annotate the scaffold
 
 This will run the annotation on 4 CPUs (`-c`), and in this case without the very time-consuming repeat-masking step (`-R`) (for an actual annotation project, you should of course NOT skip repeat-masking). MAKER still takes some time to run, so you can either take a coffee break, work on the questions in section B1 or start researching details for question QB2.27 (see below).  
 
+Maker saves the output files in a new directory `scaffold.maker.output`. 
+
 Once the program has finished, you can output the annotation using:  
 `gff3_merge -g -d scaffold.maker.output/scaffold_master_datastore_index.log`  
 
