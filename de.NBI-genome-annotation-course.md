@@ -345,7 +345,7 @@ Check your annotated gene models within the region(s) identified by the Fst data
 
 **QB2.28:** CENPN is a heterozygous loss of function mutation in "Satellites" and "Feader" males. Can you think of how this relates to the lower frequency of the "Feader" and "Satellite" morphs? 
 
-* Questionnaire
+# Questionnaire
 
 As part of the de.NBI teaching network, we would kindly like to ask you to fill out a short questionnaire to help us improve the course:
 
