@@ -344,3 +344,9 @@ Check your annotated gene models within the region(s) identified by the Fst data
 **QB2.27:** Are there any other genes within the target region that could perhaps explain male morphological and behavioral changes? (Hint: important genes to consider are HSD17B2, SDR42E1 and MC1R; check where these are in your annotation and see if you can find functional information using, e.g. the Uniprot database or the EnsEMBL website)  
 
 **QB2.28:** CENPN is a heterozygous loss of function mutation in "Satellites" and "Feader" males. Can you think of how this relates to the lower frequency of the "Feader" and "Satellite" morphs? 
+
+* Questionnaire
+
+As part of the de.NBI teaching network, we would kindly like to ask you to fill out a short questionnaire to help us improve the course:
+
+https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000109
