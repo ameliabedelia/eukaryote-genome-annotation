@@ -108,7 +108,7 @@ The BAM file includes mapped transcriptome reads. These can be used to visualize
 Load this into IGV ("File" --> "Load from file")  
 This file contains gene models from the corresponding genomic region in chicken, superimposed onto the ruff scaffold. Projecting annotations between different species is a common way to perform simple comparative genomics and guide annotation efforts by providing a "reference".  
 
-**5) Uniprot data (fasta):** `uniprot/uniprot_birds.fasta`  
+**5) Uniprot data (fasta):** `uniprot/uniprot.fasta`  
 Uniprot is a popular protein database that includes high-confidence as well as predicted protein sequences from a wide range of organisms. This dataset includes validated protein sequences from chicken, duck and zebra finch. Only protein sequences locating to our genomic region of interest are included to reduce the runtime of the annotation step.  
 
 **6) Transcripts (fasta):** `transcritps/transcripts.fasta` 
