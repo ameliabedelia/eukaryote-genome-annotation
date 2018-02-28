@@ -349,9 +349,11 @@ Check your annotated gene models within the region(s) identified by the Fst data
 
 If you finish ahead of time, you can try to re-run AUGUSTUS adding the chicken lift-over data as hints as well. 
 
-You will need to transform the `chicken.gff` file into a hints file. Use the other hints files you have already generated as templates There are many different ways to do this, we recommend you to use as source type "src=P" and only the hints features "exonpart". You can use the config file that you can find in `augustus_config/extrinsic.M.RM.E.P.config`. Read section 4 of this AUGUSTUS tutorial http://bioinf.uni-greifswald.de/augustus/binaries/tutorial/prediction.html to learn how to use and modify this config file. 
+You will need to transform the `chicken.gff` file into a hints file. Use the other hints files you have already generated as templates. There are many different ways to do this, we recommend you to use as source type "src=P" and only the hints features "exonpart". You can use the config file that you can find in `augustus_config/extrinsic.M.RM.E.P.config`. Read section 4 of this AUGUSTUS tutorial http://bioinf.uni-greifswald.de/augustus/binaries/tutorial/prediction.html to learn how to use and modify this config file. 
 
 You can first use `extrinsic.M.RM.E.P.config` as it is to run AUGUSTUS. Later change the relative weight of "src=E" and "src=P" and check the results in IGV. Try to find the compromise that, in your opinion, generates the best gene structure predictions. 
+
+*You can check the AUGUSTUS manual for more details: http://augustus.gobics.de/binaries/README.TXT*
 
 # Questionnaire
 
