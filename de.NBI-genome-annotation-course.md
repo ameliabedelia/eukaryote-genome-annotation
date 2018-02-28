@@ -420,7 +420,7 @@ Transcript length: 4,911 bps; Translation length: 1,497 residues
 
 **QB2.13:** There are LINE/CR1 repeat regions. 
 
-**QB2.14:** No. It's a LINE/CR1 repeat. 
+**QB2.14:** No. It's a LINE/CR1 repeat, the prediction is probably for its reverse transcriptase.  
 
 **QB2.15:** No. 
 
