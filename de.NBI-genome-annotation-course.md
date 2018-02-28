@@ -355,86 +355,88 @@ https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000109
 
 ### QB1. Genome Browsers 
 
-QB1.1: 22,612 genes annotated in mouse 
+**QB1.1:** 22,612 genes annotated in mouse 
 
-QB1.2: 20,338 genes annotated in human; 18,346 genes annotated in chicken 
+**QB1.2:** 20,338 genes annotated in human; 18,346 genes annotated in chicken 
 
-QB1.3: 30 transcripts. Longest: 1884 aa, shortest: 23 aa 
+**QB1.3:** 30 transcripts. Longest: 1884 aa, shortest: 23 aa 
 
-QB1.4: GENCODE 10 transcripts, RefSeq 6 transcripts 
+**QB1.4:** GENCODE 10 transcripts, RefSeq 6 transcripts 
 
-QB1.5: DNA binding, damaged DNA binding, etc 
+**QB1.5:** DNA binding, damaged DNA binding, etc 
 
-QB1.6: Breast cancer 
+**QB1.6:** Breast cancer 
 
-QB1.7: * 600185, # 114480, etc. 
+**QB1.7:** * 600185, # 114480, etc. 
 
-QB1.8: Yes, ENSGALG00000017073 
+**QB1.8:** Yes, ENSGALG00000017073 
 
-QB1.9: Across vertebrates 
+**QB1.9:** Across vertebrates 
 
-QB1.10: Exons: 33; Coding exons: 32 
+**QB1.10:** Exons: 33; Coding exons: 32 
 Transcript length: 4,911 bps; Translation length: 1,497 residues 
 
-QB1.11: Testis 
+**QB1.11:** Testis 
 
-QB1.12: The coding exons 
+**QB1.12:** The coding exons 
 
-QB1.13: 100 hits found, mostly other Hox genes 
+**QB1.13:** 100 hits found, mostly other Hox genes 
 
-## QB2. Annotation 
+### QB2. Annotation 
 
-QB2.1: 3,127 annotations 
+**QB2.1:** 3,127 annotations 
 
-QB2.2: 380 LINEs 
+**QB2.2:** 380 LINEs 
 
-QB2.3: No 
+**QB2.3:** No 
 
-QB2.4: 15,220 
+**QB2.4:** 15,220 
 
-QB2.6: Many possible answers. For example, g56 and ENSGALT00000009243. 
+**QB2.5:** Many possible answers. 
 
-QB2.7: Probably two different genes, so the chicken lift-over gene structures are more accurate. 
+**QB2.6:** Many possible answers. For example, g56 and ENSGALT00000009243. 
 
-QB2.8: Probably two different genes, so the chicken lift-over gene structures are more accurate. 
+**QB2.7:** Probably two different genes, so the chicken lift-over gene structures are more accurate. 
 
-QB2.9: Yes. 
+**QB2.8:** Probably two different genes, so the chicken lift-over gene structures are more accurate. 
 
-QB2.10: No. There is a long stretch of "N"s. 
+**QB2.9:** Yes. 
 
-QB2.11: Many possible answers. For example, g17 (1,794 kbp) was not predicted. 
+**QB2.10:** No. There is a long stretch of "N"s. 
 
-QB2.12: AUGUSTUS prediction. 
+**QB2.11:** Many possible answers. For example, g17 (1,794 kbp) was not predicted. 
 
-QB2.13: There are LINE/CR1 repeat regions. 
+**QB2.12:** AUGUSTUS prediction. 
 
-QB2.14: No. It's a LINE/CR1 repeat. 
+**QB2.13:** There are LINE/CR1 repeat regions. 
 
-QB2.15: No. 
+**QB2.14:** No. It's a LINE/CR1 repeat. 
 
-QB2.16: Yes, the gene is split and the exon spanning the repeat is not included. The repeat region is penalized and less likely to be considered part of a coding gene structure. 
+**QB2.15:** No. 
 
-QB2.17: Use the chicken lift-over evidence as hints. Find homology to other high-confidence annotations of closely related species and use them as hints. Use the assembled transcriptome as hints.  Sequence additional stages/conditions transcriptomes and use the reads as hints. 
+**QB2.16:** Yes, the gene is split and the exon spanning the repeat is not included. The repeat region is penalized and less likely to be considered part of a coding gene structure. 
 
-QB2.18: Manual curation, EnsEMBL gene build and refseq models 
+**QB2.17:** Use the chicken lift-over evidence as hints. Find homology to other high-confidence annotations of closely related species and use them as hints. Use the assembled transcriptome as hints.  Sequence additional stages/conditions transcriptomes and use the reads as hints. 
 
-QB2.19: Yes. 
+**QB2.18:** Manual curation, EnsEMBL gene build and refseq models 
 
-QB2.20: Yes. We provided MAKER with the transcripts assembled from the raw RNA-seq reads and with Uniprot proteins from closely related species, including the chicken. 
+**QB2.19:** Yes. 
 
-QB2.21: Difficult to say with the available evidence. Chicken lift-over suggests a single gene, but RNA-seq coverage is very different and no intron spans the two exons, which would suggest separate genes.  
+**QB2.20:** Yes. We provided MAKER with the transcripts assembled from the raw RNA-seq reads and with Uniprot proteins from closely related species, including the chicken. 
 
-QB2.22: Could be a real splice variant that is present in the assembled transcripts or annotated in the zebra finch or the duck. Also MAKER uses AUGUSTUS' ab initio prediction as one of its inputs, and this prediction contains the additional exon. 
+**QB2.21:** Difficult to say with the available evidence. Chicken lift-over suggests a single gene, but RNA-seq coverage is very different and no intron spans the two exons, which would suggest separate genes.  
 
-QB2.23: From the assembled transcripts. 
+**QB2.22:** Could be a real splice variant that is present in the assembled transcripts or annotated in the zebra finch or the duck. Also MAKER uses AUGUSTUS' ab initio prediction as one of its inputs, and this prediction contains the additional exon. 
 
-QB2.24: ADAMTS18 from Anas platyrhynchos (mallard duck) 
+**QB2.23:** From the assembled transcripts. 
 
-QB2.25: The RNA-seq data seems to indicate that they are two separate genes (no intron hint). In the chicken it is annotated as a single gene, that is why the two maker genes have the same annotated gene name. This could be a case of error propagation. 
+**QB2.24:** ADAMTS18 from Anas platyrhynchos (mallard duck) 
 
-QB2.26: CENPN as most relevant example - Interphase centromere complex protein 
+**QB2.25:** The RNA-seq data seems to indicate that they are two separate genes (no intron hint). In the chicken it is annotated as a single gene, that is why the two maker genes have the same annotated gene name. This could be a case of error propagation. 
 
-QB2.27: HSD17B2 (Hydroxysteroid (17-Beta) Dehydrogenase 2): sex hormone 
+**QB2.26:** CENPN as most relevant example - Interphase centromere complex protein 
+
+**QB2.27:** HSD17B2 (Hydroxysteroid (17-Beta) Dehydrogenase 2): sex hormone 
 SDR42E1 (Short Chain Dehydrogenase/Reductase Family 42E, Member 1): metabolism of steroid hormones 
 
-QB2.28: It is homozygous lethal. It cannot be homozygous, thus not rising to high frequencies. Its maintenance in population may be due to a small fitness advantage, but details not yet understood 
+**QB2.28:** It is homozygous lethal. It cannot be homozygous, thus not rising to high frequencies. Its maintenance in population may be due to a small fitness advantage, but details not yet understood 
