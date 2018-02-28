@@ -353,6 +353,8 @@ https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000109
 
 # Answers to the exercises 
 
+## QB1. Genome Browsers 
+
 QB1.1: 22,612 genes annotated in mouse 
 
 QB1.2: 20,338 genes annotated in human; 18,346 genes annotated in chicken 
@@ -380,8 +382,8 @@ QB1.12: The coding exons
 
 QB1.13: 100 hits found, mostly other Hox genes 
 
+## QB2. Annotation 
 
- 
 QB2.1: 3,127 annotations 
 
 QB2.2: 380 LINEs 
