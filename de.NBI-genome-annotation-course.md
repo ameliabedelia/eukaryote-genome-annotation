@@ -353,7 +353,7 @@ https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000109
 
 # Answers to the exercises 
 
-## QB1. Genome Browsers 
+### QB1. Genome Browsers 
 
 QB1.1: 22,612 genes annotated in mouse 
 
