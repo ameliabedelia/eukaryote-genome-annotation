@@ -365,6 +365,38 @@ As part of the de.NBI teaching network, we would kindly like to ask you to fill 
 
 https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000109 
 
+# Programs 
+
+The programs we have used in this practical can be downloaded from: 
+
+**AUGUSTUS:** http://bioinf.uni-greifswald.de/augustus/ 
+
+**MAKER:** http://www.yandell-lab.org/software/maker.html 
+
+**RepeatMasker:** http://www.repeatmasker.org 
+
+**BLAST+:** https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download 
+
+**Samtools:** http://www.htslib.org 
+
+Other useful programs for genome annotation are the following: 
+
+**GLEAN:** https://glean-gene.sourceforge.io 
+
+**SNAP:** https://github.com/KorfLab/SNAP 
+
+**Exonerate:** https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate 
+
+**PASA:** http://pasa.sf.net 
+
+**EVidenceModeler:** https://evidencemodeler.github.io 
+
+**Tophat:** https://ccb.jhu.edu/software/tophat/index.shtml 
+
+**Trinity:** https://github.com/trinityrnaseq/trinityrnaseq/wiki 
+
+**BUSCO:** http://busco.ezlab.org 
+
 # Answers to the exercises 
 
 ### QB1. Genome Browsers 
