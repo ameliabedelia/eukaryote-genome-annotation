@@ -84,7 +84,8 @@ https://www.git-tower.com/blog/command-line-cheat-sheet/
 
 *We recommend that you type the commands yourself instead of copy-pasting, as it will then become more clear what you are doing at each step. Remember that you can press the "tab" key to autocomplete file and directory names; also the "up arrow" key will show you the commands that you previously typed.* 
 
-For these exercises you will need the **IGV genome browser**. A zipped version of the program is now in your $HOME directory. To run it type the following commands in a new Terminal window:
+For these exercises you will need the **IGV genome browser**. A zipped version of the program is now in your $HOME directory. To run it type the following commands in a new Terminal window: 
+
 `cd denbi_Annotation_practical` 
 
 `unzip IGV_2.4.8.zip` 
