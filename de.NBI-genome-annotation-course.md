@@ -381,6 +381,8 @@ The programs we have used in this practical can be downloaded from:
 
 **Samtools:** http://www.htslib.org 
 
+**IGV:** https://software.broadinstitute.org/software/igv/download 
+
 Other useful programs for genome annotation are the following: 
 
 **GLEAN:** https://glean-gene.sourceforge.io 
