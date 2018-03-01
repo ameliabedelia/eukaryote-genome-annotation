@@ -399,6 +399,11 @@ Other useful programs for genome annotation are the following:
 
 **BUSCO:** http://busco.ezlab.org 
 
+**WebApollo:** http://gmod.org/wiki/WebApollo 
+
+**Artemis:** http://www.sanger.ac.uk/science/tools/artemis 
+
+
 # Answers to the exercises 
 
 ### QB1. Genome Browsers 
