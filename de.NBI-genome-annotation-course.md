@@ -94,7 +94,7 @@ For these exercises you will need the **IGV genome browser**. A zipped version o
 
 `./igv.sh`   
 
-ALl the files you will need for this practical should now be also in your $HOME directory:   
+All the files you will need for this practical should now also be in your $HOME directory:   
 
 **1) The genome sequence (scaffold28):** `genome/scaffold.fa`  
 Load this into IGV ("Genomes" --> "Load from file")  
@@ -129,7 +129,7 @@ If you zoom in you can see the RNA-seq reads as well:
 On the panel on the left side, you can right-click a track to rename it, change its color or expand/colapse it. 
 
 ### Software containers  
-Many of the tools used in this exercise are pretty complex to install. In order to avoid having to install them on each computer we are going to use software *containers*. These are *portable* environments in which you can install an operating system, a program or many programs and then copy the whole thing to whichever computer you like to run the software. Popular solutions are Docker and **Singularity** (which we will use here). The way to run a tool inside a container is pretty straight-forward:  
+Many of the tools used in this exercise are pretty complex to install. In order to avoid having to install them on each computer we are going to use software *containers*. These are portable environments in which you can install an operating system, a program or many programs and then copy the whole thing to whichever computer you like to run the software. Popular solutions are Docker and **Singularity** (which we will use here). The way to run a tool inside a container is pretty straight-forward:  
 
 If you would run a command without container like this:  
 `samtools sort -o rnaseq.sorted.bam rnaseq.bam`  
