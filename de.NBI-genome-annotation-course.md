@@ -14,6 +14,12 @@ The following exercices will introduce you to methods in eukaryotic genome annot
 
 Note: the exercises are split into two separate tasks (B1 and B2). We suggest that you take a look at B2 first, as it requires a bit more runtime on your computer. While B2 is running, you can get started on B1.   
 
+# B0. Copy the files to your home directory
+Data for the exercises is located in the folder `/mnt/lectures/denbi/denbi_Annotation_practical`.  
+
+Copy that folder to your $HOME directory:  
+`cp -R /mnt/lectures/denbi/denbi_Annotation_practical $HOME` 
+
 # B1. Genome Browsers  
 Genome browsers are an important tool for anyone working with eukaryote genome sequences. They can help visualize rich data sets and are often critical to the biological interpretation of findings from wet-lab or sequencing experiments.  
 It is important to familiarize yourself with these resources so you understand what kind of features can be annotated and where to find this type of information.  
@@ -78,19 +84,16 @@ https://www.git-tower.com/blog/command-line-cheat-sheet/
 
 *We recommend that you type the commands yourself instead of copy-pasting, as it will then become more clear what you are doing at each step. Remember that you can press the "tab" key to autocomplete file and directory names; also the "up arrow" key will show you the commands that you previously typed.* 
 
-For these exercises you will need the **IGV genome browser**. The program can be found in the folder `/mnt/lectures/biol258/Day7/IGV` and you can copy it to your home directory like so:  
-`cp -R /mnt/lectures/biol258/Day07/IGV $HOME`  
+For these exercises you will need the **IGV genome browser**. A zipped version of the program is now in your $HOME directory. To run it type the following commands in a new Terminal window:
+`cd denbi_Annotation_practical` 
 
-*Please note! The commands given in this wiki are examples and they assume that you make sure that the input and output files are where they should be.*  
-*Sometimes you may have to copy files to your current directory or expand the example commands to include correct/full paths!*  
-  
+`unzip IGV_2.4.8.zip` 
 
-Data for the exercises is located in the folder `/mnt/lectures/biol258/Day07/B2`.  
+`cd IGV_2.4.8` 
 
-Copy that folder to your $HOME directory:  
-`cp -R /mnt/lectures/biol258/Day07/B2 $HOME/Day07`  
+`./igv.sh`   
 
-The copy in your home folder is where you will run the following analyses. The different data can be found in the various subfolders:  
+ALl the files you will need for this practical should now be also in your $HOME directory:   
 
 **1) The genome sequence (scaffold28):** `genome/scaffold.fa`  
 Load this into IGV ("Genomes" --> "Load from file")  
@@ -133,19 +136,19 @@ If you would run a command without container like this:
 You would run the same command with a container like this:  
 `singularity exec container.img samtools sort -o rnaseq.sorted.bam rnaseq.bam`  
 
-Here `container.img` is a place holder, which you have to replace by the name of the actual container.  
-
-Copy the singularity image for this exercise to your local hard drive:  
-`cp -R /mnt/lectures/biol258/Day07/singularity.img $HOME`  
+Here `container.img` is a place holder, which you have to replace by the name of the actual container `ikmb-denbi-annotation.img`.  
 
 In order to be able to run the examples in the following exercises, you will have to add the following code in front of each command:  
-`singularity exec $HOME/singularity.img <command execution here>`  
+`singularity exec ikmb-denbi-annotation.img <command execution here>`  
 
 ## Annotating the ruff  
 Annotation of eukaryote genomes commonly includes these steps: repeat masking, generating "evidences" from sequence data (proteins, transcripts) and combining these with gene finding tools that can use the evidence to generate "best-guess" gene models.   
 
 ## B2.2. Repeat-masking the genome  
-Identifying repetitive motifs in an eukaryotic genome sequence is important prior to annotation as repeat sequences are abundant but usually not part of actual protein-coding genes. Excluding them from the annotation process can therefore increase the quality of resulting gene models. The most popular tool for this purpose is **RepeatMasker**. It comes with a range of reference repeat sequences and uses a special version of BLAST (and some other tools) to annotate repetitive motifs.  
+Identifying repetitive motifs in an eukaryotic genome sequence is important prior to annotation as repeat sequences are abundant but usually not part of actual protein-coding genes. Excluding them from the annotation process can therefore increase the quality of resulting gene models. The most popular tool for this purpose is **RepeatMasker**. It comes with a range of reference repeat sequences and uses a special version of BLAST (and some other tools) to annotate repetitive motifs. 
+
+*Please note! The commands given in this wiki are examples and they assume that you make sure that the input and output files are where they should be.  
+Sometimes you may have to copy files to your current directory or expand the example commands to include correct/full paths!* 
 
 To repeat-mask scaffold28, you can run RepeatMasker like so:  
 `RepeatMasker -pa 4 -qq -species aves -xsmall scaffold.fa`  
