@@ -2,7 +2,7 @@
 
 # Lectures
 
-![Genome projects](pdf/MH_CoursePresentation1_140218.pdf)
+[Genome projects](pdf/MH_CoursePresentation1_140218.pdf)
  
 # Overview
 
