@@ -200,7 +200,7 @@ Gene finders may either use generic "profiles" to predict genes, or specifically
 You can see which other species have already an AUGUSTUS trained model if you type:
 `singularity exec eukaryote-annotation.img which augustus`  
 
-For your own research project, you probably have a species of interest. Do you see its name or that of a related one? If not, unfortunately you will probably have to train a new species-specific model. The authors provide an extensive protocol on how to this [here](https://currentprotocols.onlinelibrary.wiley.com/doi/pdf/10.1002/cpbi.57). But we will not do this in this workshop. 
+For your own research project, you probably have an organism of interest. Do you see its name or that of a related species? If not, unfortunately you will probably have to train a new species-specific model. The authors of AUGUSTUS provide an extensive protocol on how to this [here](https://currentprotocols.onlinelibrary.wiley.com/doi/pdf/10.1002/cpbi.57). But we will not do that today. 
 
 For the ruff, we can use the chicken profile models. Birds have fairly well-conserved gene structures and sequences. As sequence, use the repeat-masked scaffold you generated in the previous section (`scaffold.fa.masked`).  
 
