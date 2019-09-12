@@ -19,10 +19,10 @@ The following exercices will introduce you to methods in eukaryotic genome annot
 Note: the exercises are split into two separate tasks (B1 and B2). We suggest that you take a look at B2 first, as it requires a bit more runtime on your computer. While B2 is running, you can get started on B1.   
 
 # B0. Copy the files to your home directory
-Data for the exercises is located in the folder `/mnt/lectures/denbi/denbi_Annotation_practical`.  
+Data for the exercises is located in the folder `/mnt/lectures/denbi/annotation`.  
 
 Copy that folder to your $HOME directory:  
-`cp -R /mnt/lectures/denbi/denbi_Annotation_practical $HOME` 
+`cp -R /mnt/lectures/denbi/annotation $HOME` 
 
 # B1. Genome Browsers  
 Genome browsers are an important tool for anyone working with eukaryote genome sequences. They can help visualize rich data sets and are often critical to the biological interpretation of findings from wet-lab or sequencing experiments.  
@@ -92,7 +92,7 @@ https://www.git-tower.com/blog/command-line-cheat-sheet/
 
 For these exercises you will need the **IGV genome browser**. A zipped version of the program is now in your $HOME directory. To run it type the following commands in a new Terminal window: 
 
-`cd denbi_Annotation_practical` 
+`cd annotation` 
 
 `unzip IGV_2.4.8.zip` 
 
@@ -100,7 +100,7 @@ For these exercises you will need the **IGV genome browser**. A zipped version o
 
 `./igv.sh`   
 
-All the files you will need for this practical should now also be in your $HOME directory:   
+All the files you will need for this practical should now also be in your $HOME/annotation directory:   
 
 **1) The genome sequence (scaffold28):** `genome/scaffold.fa`  
 Load this into IGV ("Genomes" --> "Load from file")  
