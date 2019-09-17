@@ -1,8 +1,4 @@
 ![](images/ikmb_bfx_logo.png)
-
-# Lectures
-
-[Genome projects](pdf/MH_CoursePresentation1_140218.pdf)
  
 # Overview
 
