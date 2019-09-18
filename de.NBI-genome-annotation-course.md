@@ -372,7 +372,7 @@ You can first use `extrinsic.M.RM.E.P.config` as it is to run AUGUSTUS. Later ch
 
 As part of the de.NBI teaching network, we would kindly like to ask you to fill out a short questionnaire to help us improve the course:
 
-https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000109 
+https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000227
 
 # Programs 
 
@@ -411,12 +411,6 @@ Other useful programs for genome annotation are the following:
 **WebApollo:** http://gmod.org/wiki/WebApollo 
 
 **Artemis:** http://www.sanger.ac.uk/science/tools/artemis 
-
-# Were you happy with the course?
-
-Please take a few minutes to fill out the de.NBI questionnaire so we can keep improving this course. Thanks!
-
-https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000227
 
 # Answers to the exercises 
 
