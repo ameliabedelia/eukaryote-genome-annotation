@@ -412,6 +412,11 @@ Other useful programs for genome annotation are the following:
 
 **Artemis:** http://www.sanger.ac.uk/science/tools/artemis 
 
+# Were you happy with the course?
+
+Please take a few minutes to fill out the de.NBI questionnaire so we can keep improving this course. Thanks!
+
+https://de.surveymonkey.com/r/denbi-course?sc=cau&id=000227
 
 # Answers to the exercises 
 
