@@ -167,9 +167,15 @@ In "soft"-masking, repeats are written in lower-case, all other nucleotides uppe
 
 **QB2.1:** How many repeats were annotated in scaffold28? (use the command `wc -l` to check the number of lines of the file `scaffold.fa.out`)  
 
+*3127 annotated repeats*
+
 **QB2.2:** How many of those are "LINE" elements? (check `scaffold.fa.tbl`)  
 
+*480 are LINE elements*
+
 **QB2.3:** Look at the first lines of the repeat-masked genome (type `head scaffold.fa.masked` to see the first 10 lines), have any of the first nucleotides been masked? 
+
+*No, none of the first 10 lines have masked nucleotides*
 
 **QB2.4:** What is the position of the first repeat?  
 
@@ -180,6 +186,8 @@ Annotators spend a lot of time just adjusting file formats to follow the rules o
 Check in a text editor that `scaffold_repmask.gff` has GFF format (9 columns). 
 
 Load the masked genome `scaffold.fa.masked` ("Genomes" --> "Load from file") and the annotated repeats `scaffold_repmask.gff` ("File" --> "Load from file") into IGV. Zoom-in until you can see the nucleotides. 
+
+*base 21,220? (or 15,220?)* 
 
 **QB2.5:** Can you find an example of a soft-masked sequence based on the annotated repeats? Write its coordinates.  
 
@@ -211,7 +219,11 @@ You can load this file into IGV and check what sort of gene models AUGUSTUS pred
 
 **QB2.6:** Can you find an augustus prediction that is the same or very similar to the chicken lift-over? Write its name ("gXX"). (The chicken lift-over has UTR information, but AUGUSTUS has not predicted them in the way we have run it. Search similar predictions based only on coding sequence).  
 
+*g71*
+
 **QB2.7:** Go to position 7,460 kbp. Augustus has predicted gene g149 as a merge of the chicken genes ENSGALT00000001245 and ENSGALT00000001289. Based on the RNA-seq evidence, which gene structure do you think is right?  
+
+*The chicken gene model is more likely the correct gene structure. There is a large amount of RNA read coverage around 7.5kb, but our Augustus does not predict a gene there. Or it's something noncoding??*
 
 **QB2.8:** Go to position 6,180 kbp. Augustus has predicted gene g112 as a merge of the chicken genes ENSGALT00000000717 and ENSGALT00000000179. Based on the RNA-seq evidence, which gene structure do you think is right? 
 
