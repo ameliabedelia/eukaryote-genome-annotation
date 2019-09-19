@@ -227,6 +227,8 @@ You can load this file into IGV and check what sort of gene models AUGUSTUS pred
 
 **QB2.8:** Go to position 6,180 kbp. Augustus has predicted gene g112 as a merge of the chicken genes ENSGALT00000000717 and ENSGALT00000000179. Based on the RNA-seq evidence, which gene structure do you think is right? 
 
+*The chicken gene model. There is no RNA-seq evidence for one of the "connecting" exons predicted by Augustus*
+
 ## B2.4. Re-run AUGUSTUS with "hints" from RNA-seq experiments  
 
 In the previous example, you ran AUGUSTUS *ab initio*, without any external evidence. However, as you will learn with the course, there is a very good source of information for the presence of introns and exons in a genome sequence: RNA-seq data. As RNA-seq is a snapshot of what is transcribed from a genome, it would be useful to tell AUGUSTUS where there should be an intron or an exon instead of having it guess it. This is called "providing hints". So, let's generate hints and run AUGUSTUS again.  
@@ -257,17 +259,27 @@ You can now compare the lift-over chicken annotation with your initial AUGUSTUS 
 
 **QB2.9:** Check position 7,460 kbp again. Has the use of RNA-seq hints improved the annotation? 
 
+*yes, the hints have improved the model. It now predicts two genes instead of one merged*
+
 **QB2.10:** Check position 6,180 kbp again. Has the use of RNA-seq hints improved the annotation? Zoom-in to the nucleotide level at position 6,178,780 bp. Can you see any problematic sequence that could difficult the prediction of gene structure? 
+
+*No, it has not changed. The Ns from the scaffolding?*
 
 **QB2.11:** Can you find another AUGUSTUS prediction that has been improved by the use of RNA-seq hints? Write its name ("gXX"). 
 
 **QB2.12:** Go to position 7,587,940 bp and zoom-in to the nucleotide level. AUGUSTUS has predicted a 3'-end of this exon different from the chicken lift-over evidence. Which one do you think is correct? (Remember that the canonical splice donor and acceptor sites are GU and AG, respectively). 
 
+*The augustus prediction*
+
 ![](images/IGV_donor.png) 
 
 **QB2.13:** Go to position 6,076 kbp. AUGUSTUS has predicted gene g102/g108 as a merge of the chicken genes ENSGALT00000045099 and ENSGALT00000009974. Do you see something that could explain why AUGUSTUS predicts an additional exon in this position? 
 
+*The soft marked repeats in the region*
+
 **QB2.14:** Go to position 5,394 kbp. AUGUSTUS has predicted a short single exon gene here (g80/g84). Would you trust this prediction? Why? 
+
+*No, there is a LINE insertion element there and the RNA probably came from that*
 
 ## B2.5. Re-run AUGUSTUS with hints from RepeatMasker 
 
@@ -286,6 +298,8 @@ Now we can run AUGUSTUS again. Note that we use a different config file `extrins
 Load the file `augustus.with.E.RM.hints.gff3` into IGV. 
 
 **QB2.15:** Check position 5,394 kbp again. Is the gene predicted when we use negative hints from RepeatMasker? 
+
+
 
 **QB2.16:** Check position 6,076 kbp again. Has the gene prediction changed in this position? Why do you think that is? 
 
@@ -336,6 +350,8 @@ This will only output the finished gene models, not the aligned proteins and tra
 
 **QB2.23:** If MAKER does not use the direct RNA-seq data, how do you think it can predict UTRs? 
 
+*Based on canonical rules?*
+
 ## B2.7. Functional annotation using BLAST and MAKER  
 
 Now that you have a first structural annotation, you next have to figure out what the genes you just annotated actually do. Based on that, you can start thinking about explanations for the male morphs in the ruff. A common way to functionally annotate genes is by similarity to genes that we already know the function of. A good source for this is the Uniprot database. We will simply use **BLAST** to match the predicted proteins from the ruff scaffold to this database and take the best hit as the most likely function. Please keep in mind that this is only a prediction and will not work well if your genome of interest is phylogenetically distant to other species with a functionally characterized proteome. Since we work with a bird and chicken is well studied, this should not be a big problem in our case.  
@@ -358,7 +374,11 @@ Load this file into IGV. When you put your cursor on a gene model, you should se
 
 **QB2.24:** To which protein is the first gene in the scaffold most similar to? From which species? 
 
+*Most similar to ADAMTS18*
+
 **QB2.25:** Check position 7,170 kbp again. MAKER has predicted two genes in this locus. To which protein is each of them most similar to? Would you trust this function assignment based on the RNA-seq data from the ruff?  
+
+*Similar to ZFH3. Are they the same gene? Or duplication??*
 
 ## B2.8. Putting it all together  
 
