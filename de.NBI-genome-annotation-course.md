@@ -386,9 +386,17 @@ Check your annotated gene models within the region(s) identified by the Fst data
 
 **QB2.26:** Are genes overlapping these boundaries and what do they do?  (Hint: important gene to consider is CENPN)  
 
+*CENPN is a centromere protein, important for chromosome segregation*
+
 **QB2.27:** Are there any other genes within the target region that could perhaps explain male morphological and behavioral changes? (Hint: important genes to consider are HSD17B2, SDR42E1 and MC1R; check where these are in your annotation and see if you can find functional information using, e.g. the Uniprot database or the EnsEMBL website)  
 
+*HSB17B2 catalyzes testosterone conversion and is involved in progesterone resistance
+SDR42E1 is short chain dehydrogenase, involved in steroid biosynthesis
+MC1R is the melanocortin 1 receptor, key component in mammalian hair color; albinoism*
+
 **QB2.28:** CENPN is a heterozygous loss of function mutation in "Satellites" and "Feader" males. Can you think of how this relates to the lower frequency of the "Feader" and "Satellite" morphs? 
+
+
 
 ## B2.9. Re-run AUGUSTUS with hints from chicken lift-over (extra exercise) 
 
